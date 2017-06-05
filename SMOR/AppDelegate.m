@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MLStyle.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[UINavigationBar appearance] setBarTintColor:kRedColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTranslucent:NO];
+;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: kNavBarTitleFont,
+                                                           NSForegroundColorAttributeName: [UIColor whiteColor]
+                                                           }];
+    
+    [[UITabBar appearance] setTintColor:kWhiteColor];
+    [[UITabBar appearance] setBarTintColor:kRedColor];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName : MEDIUM(14.0)} forState:UIControlStateNormal];
+        
     return YES;
 }
 

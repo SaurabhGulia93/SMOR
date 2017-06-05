@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SMHistoryViewController.h
 //  SMOR
 //
 //  Created by Saurabh on 5/31/17.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SMHistoryViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
-
