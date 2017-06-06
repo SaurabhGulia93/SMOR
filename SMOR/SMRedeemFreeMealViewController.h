@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SMRedeemFreeMealViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIButton *redeemButton;
+- (IBAction)redeemButtonTapped:(UIButton *)sender;
 
 @end

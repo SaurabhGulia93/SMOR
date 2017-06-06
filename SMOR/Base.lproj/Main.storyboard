@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -188,13 +189,62 @@
                     <view key="view" contentMode="scaleToFill" id="RhM-z9-Hgv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHF-i4-1LR">
+                                <rect key="frame" x="0.0" y="155.5" width="375" height="223"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zgb-GS-hUm">
+                                        <rect key="frame" x="122.5" y="20" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="CHY-Eg-VxE"/>
+                                            <constraint firstAttribute="height" constant="130" id="lPS-kJ-c2x"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5v-J7-XSs">
+                                        <rect key="frame" x="15" y="152" width="345" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMU-cX-6k8">
+                                        <rect key="frame" x="120.5" y="172" width="134" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="10" maxX="15" maxY="10"/>
+                                        <state key="normal" title="Redeem Meal"/>
+                                        <connections>
+                                            <action selector="redeemButtonTapped:" destination="aIw-pp-2ck" eventType="touchUpInside" id="PMf-X2-lnD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="R5v-J7-XSs" firstAttribute="top" secondItem="Zgb-GS-hUm" secondAttribute="bottom" constant="2" id="01C-ey-HLm"/>
+                                    <constraint firstItem="GMU-cX-6k8" firstAttribute="top" secondItem="R5v-J7-XSs" secondAttribute="bottom" constant="20" id="Pjm-2c-pfO"/>
+                                    <constraint firstItem="R5v-J7-XSs" firstAttribute="leading" secondItem="LHF-i4-1LR" secondAttribute="leading" constant="15" id="Svn-n4-H8e"/>
+                                    <constraint firstItem="Zgb-GS-hUm" firstAttribute="centerX" secondItem="LHF-i4-1LR" secondAttribute="centerX" id="UVr-Wm-Jqh"/>
+                                    <constraint firstItem="GMU-cX-6k8" firstAttribute="centerX" secondItem="LHF-i4-1LR" secondAttribute="centerX" id="dDE-0U-Yad"/>
+                                    <constraint firstAttribute="bottom" secondItem="GMU-cX-6k8" secondAttribute="bottom" constant="10" id="iAn-tF-Pcq"/>
+                                    <constraint firstItem="Zgb-GS-hUm" firstAttribute="top" secondItem="LHF-i4-1LR" secondAttribute="top" constant="20" id="qlQ-O8-isy"/>
+                                    <constraint firstAttribute="trailing" secondItem="R5v-J7-XSs" secondAttribute="trailing" constant="15" id="vwu-91-NFm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LHF-i4-1LR" secondAttribute="trailing" id="C7U-4z-pxh"/>
+                            <constraint firstItem="LHF-i4-1LR" firstAttribute="leading" secondItem="RhM-z9-Hgv" secondAttribute="leading" id="MZJ-mB-efh"/>
+                            <constraint firstItem="LHF-i4-1LR" firstAttribute="centerY" secondItem="RhM-z9-Hgv" secondAttribute="centerY" multiplier="0.8" id="yQN-IF-J8q"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SMOR" id="XR2-gZ-ogc"/>
+                    <connections>
+                        <outlet property="label" destination="R5v-J7-XSs" id="hPg-IC-EAI"/>
+                        <outlet property="redeemButton" destination="GMU-cX-6k8" id="IvJ-5z-jID"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKL-Uu-Mmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1481" y="1110"/>
+            <point key="canvasLocation" x="1480.8" y="1109.5952023988007"/>
         </scene>
         <!--SMOR-->
         <scene sceneID="zrJ-MX-VyD">
@@ -299,6 +349,7 @@
     <resources>
         <image name="Gift" width="20" height="20"/>
         <image name="cameraIcon" width="20" height="16"/>
+        <image name="gift_icon.png" width="276" height="276"/>
         <image name="history" width="19" height="22"/>
         <image name="homeIcon" width="20" height="19"/>
     </resources>

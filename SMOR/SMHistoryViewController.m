@@ -8,6 +8,8 @@
 
 #import "SMHistoryViewController.h"
 
+#define DefaultsKey @"SMORDATA"
+
 @interface SMHistoryViewController ()
 
 @end

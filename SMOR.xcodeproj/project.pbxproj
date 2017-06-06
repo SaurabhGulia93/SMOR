@@ -21,6 +21,7 @@
 		09660FAC1EE2D32C008B1DD5 /* sm2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FA91EE2D32C008B1DD5 /* sm2.jpg */; };
 		09660FAD1EE2D32C008B1DD5 /* sm3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FAA1EE2D32C008B1DD5 /* sm3.jpg */; };
 		09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */; };
+		09D34A141EE6942B00167D63 /* gift_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D34A131EE6942B00167D63 /* gift_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		09660FA91EE2D32C008B1DD5 /* sm2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm2.jpg; sourceTree = "<group>"; };
 		09660FAA1EE2D32C008B1DD5 /* sm3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm3.jpg; sourceTree = "<group>"; };
 		09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smore1080x1980.jpeg; sourceTree = "<group>"; };
+		09D34A131EE6942B00167D63 /* gift_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		094990251EE1D7B900FB3089 /* Assessts */ = {
 			isa = PBXGroup;
 			children = (
+				09D34A131EE6942B00167D63 /* gift_icon.png */,
 				09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */,
 				09660FA81EE2D32C008B1DD5 /* sm1.jpg */,
 				09660FA91EE2D32C008B1DD5 /* sm2.jpg */,
@@ -237,6 +240,7 @@
 			files = (
 				09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */,
 				095798981EDDF96100BB76C6 /* LaunchScreen.storyboard in Resources */,
+				09D34A141EE6942B00167D63 /* gift_icon.png in Resources */,
 				09660FAB1EE2D32C008B1DD5 /* sm1.jpg in Resources */,
 				09660FAD1EE2D32C008B1DD5 /* sm3.jpg in Resources */,
 				095798951EDDF96100BB76C6 /* Assets.xcassets in Resources */,
@@ -397,8 +401,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gronical.SMOR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d22bf2da-21ad-4d26-9893-4d7519603f05";
-				PROVISIONING_PROFILE_SPECIFIER = "SMOR Distributiion Provisioning Profile";
+				PROVISIONING_PROFILE = "189c75ad-21c5-4612-aba6-e641a68cf7b5";
+				PROVISIONING_PROFILE_SPECIFIER = "SMOR AdHoc Distribution Provisioning Profile";
 			};
 			name = Release;
 		};
