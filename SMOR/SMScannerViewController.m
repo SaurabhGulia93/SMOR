@@ -9,10 +9,15 @@
 #import "SMScannerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
+#define QR1 @"11.70"
+#define QR2 @"11.70"
+#define QR3 @"11.70"
+
 @interface SMScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property (nonatomic, assign) BOOL shouldStopScan;
 
 @end
 
@@ -26,6 +31,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.shouldStopScan = false;
     [self.permissionView setHidden:true];
 }
 
@@ -125,9 +131,41 @@
             
             NSLog(@"QR Value - %@", [metadataObj stringValue]);
             
+            NSString *qrCodeValue = [metadataObj stringValue];
+            
+            if([qrCodeValue isEqualToString:QR1] || [qrCodeValue isEqualToString:QR2]|| [qrCodeValue isEqualToString:QR3]){
+                
+                [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
+            }
+            
         }
     }
 }
+
+-(void)showSuccessPopup{
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Congratulations"
+                                  message:@"You have successfully earned 10 loyalty points. You can redeem a free meal after successfully earning 100 loyalyty points."
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Ok"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * _Nonnull action) {
+                             
+                             self.tabBarController.selectedIndex = 3;
+                             
+                         }];
+    
+    [alert addAction:ok];
+    
+    //    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
 - (IBAction)grantPermission:(UIButton *)sender {
     
     if (UIApplicationOpenSettingsURLString != NULL) {

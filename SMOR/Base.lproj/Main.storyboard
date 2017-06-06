@@ -257,11 +257,11 @@
             </objects>
             <point key="canvasLocation" x="1480.8" y="1803.1484257871066"/>
         </scene>
-        <!--Item-->
+        <!--Redeem-->
         <scene sceneID="Rc6-BN-k1S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lGi-vV-ym8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EL6-xQ-lbH"/>
+                    <tabBarItem key="tabBarItem" title="Redeem" image="Gift" id="EL6-xQ-lbH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kvH-zT-28F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -276,11 +276,11 @@
             </objects>
             <point key="canvasLocation" x="542" y="1161"/>
         </scene>
-        <!--Item-->
+        <!--History-->
         <scene sceneID="yY1-oM-Ci3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NPC-yY-ijI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4M7-Eh-Wvq"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="4M7-Eh-Wvq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aQR-Zv-uqT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -297,7 +297,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Gift" width="20" height="20"/>
         <image name="cameraIcon" width="20" height="16"/>
+        <image name="history" width="19" height="22"/>
         <image name="homeIcon" width="20" height="19"/>
     </resources>
 </document>

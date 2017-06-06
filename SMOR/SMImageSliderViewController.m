@@ -15,12 +15,17 @@
 
 @end
 
-@implementation SMImageSliderViewController
+@implementation SMImageSliderViewController{
+    BOOL autoSrcollEnabled;
+    NSTimer *activeTimer;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.imagesArr = [[NSMutableArray alloc] initWithObjects:@"sm1.jpg", @"sm2.jpg", @"sm3.jpg", nil];
+    autoSrcollEnabled = true;
     
     _sliderScrollView.backgroundColor = kBlackFontColor;
     _sliderScrollView.pagingEnabled = YES;
@@ -55,6 +60,8 @@
     CGFloat startX = (CGFloat)[_imagesArr count] * [UIScreen mainScreen].bounds.size.width;
     [_sliderScrollView setContentOffset:CGPointMake(startX, 0) animated:NO];
     
+    [self startAutoPlay];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -86,9 +93,9 @@
         moveToPage = moveToPage % [_imagesArr count];
         _pageControl.currentPage = moveToPage;
     }
-//    if (([_imagesArr count] > 1) && (autoSrcollEnabled)) {
-//        [self startTimerThread];
-//    }
+    if (([_imagesArr count] > 1) && (autoSrcollEnabled)) {
+        [self startTimerThread];
+    }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
@@ -122,10 +129,49 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     
-//    if (activeTimer) {
-//        [activeTimer invalidate];
-//        activeTimer = nil;
-//    }
+    if (activeTimer) {
+        [activeTimer invalidate];
+        activeTimer = nil;
+    }
+}
+
+#pragma mark end -
+
+- (void)slideImage {
+    
+    CGFloat startX = 0.0f;
+    CGFloat width = _sliderScrollView.frame.size.width;
+    NSInteger page = (_sliderScrollView.contentOffset.x + (0.5f * width)) / width;
+    NSInteger nextPage = page + 1;
+    startX = (CGFloat)nextPage * width;
+    //    [_sliderMainScroller scrollRectToVisible:CGRectMake(startX, 0, width, _sliderMainScroller.frame.size.height) animated:YES];
+    [_sliderScrollView setContentOffset:CGPointMake(startX, 0) animated:YES];
+}
+
+-(void)startTimerThread
+{
+    if (activeTimer) {
+        [activeTimer invalidate];
+        activeTimer = nil;
+    }
+    activeTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(slideImage) userInfo:nil repeats:YES];
+}
+
+-(void)startAutoPlay
+{
+    autoSrcollEnabled = YES;
+    if (([_imagesArr count] > 1) && (autoSrcollEnabled)) {
+        [self startTimerThread];
+    }
+}
+
+-(void)stopAutoPlay
+{
+    autoSrcollEnabled = NO;
+    if (activeTimer) {
+        [activeTimer invalidate];
+        activeTimer = nil;
+    }
 }
 
 
