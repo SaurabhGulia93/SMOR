@@ -62,7 +62,7 @@
     mainStyle.alignment = NSTextAlignmentCenter;
     mainStyle.paragraphSpacing = 4;
     
-    NSDictionary *headerTitleDict2 = @{NSFontAttributeName : REGULAR(16),
+    NSDictionary *headerTitleDict2 = @{NSFontAttributeName : REGULAR(17),
                                        NSForegroundColorAttributeName : kBlackFontColor,
                                        NSParagraphStyleAttributeName : mainStyle
                                        };
@@ -87,11 +87,10 @@
         
     }else{
         
-        NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", @"You can redeem a free meal once you gain 100 loyalty points"] attributes:headerTitleDict1];
+        NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", @"You can redeem a free meal once you earn 100 loyalty points"] attributes:headerTitleDict1];
         [attStr appendAttributedString:headerAttr2];
         
     }
-    
     
     return [[NSAttributedString alloc] initWithAttributedString:attStr];
 }

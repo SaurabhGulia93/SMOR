@@ -262,32 +262,48 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="107" id="xPx-IV-yLC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="107" id="xPx-IV-yLC" customClass="SMHistoryTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xPx-IV-yLC" id="7fz-f8-aTQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-w2-sFi">
-                                                    <rect key="frame" x="9" y="11" width="70" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="general" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-w2-sFi">
+                                                    <rect key="frame" x="18" y="18" width="70" height="70.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-BT-L4e">
-                                                    <rect key="frame" x="106" y="36" width="141" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-BT-L4e">
+                                                    <rect key="frame" x="103" y="43" width="153" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACF-jk-Mju">
-                                                    <rect key="frame" x="232" y="3" width="111" height="95"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smored" translatesAutoresizingMaskIntoConstraints="NO" id="ACF-jk-Mju">
+                                                    <rect key="frame" x="268" y="0.0" width="95" height="89"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OIB-BT-L4e" firstAttribute="leading" secondItem="FXW-w2-sFi" secondAttribute="trailing" constant="15" id="1dn-Sn-qGZ"/>
+                                                <constraint firstItem="ACF-jk-Mju" firstAttribute="bottom" secondItem="FXW-w2-sFi" secondAttribute="bottom" id="7dY-dN-5oY"/>
+                                                <constraint firstItem="ACF-jk-Mju" firstAttribute="trailing" secondItem="7fz-f8-aTQ" secondAttribute="trailing" constant="-12" id="BH9-XE-otw"/>
+                                                <constraint firstItem="OIB-BT-L4e" firstAttribute="centerY" secondItem="FXW-w2-sFi" secondAttribute="centerY" id="BHZ-xp-pk0"/>
+                                                <constraint firstItem="FXW-w2-sFi" firstAttribute="leading" secondItem="7fz-f8-aTQ" secondAttribute="leadingMargin" constant="10" id="OrO-b4-W9L"/>
+                                                <constraint firstItem="FXW-w2-sFi" firstAttribute="top" secondItem="7fz-f8-aTQ" secondAttribute="topMargin" constant="10" id="bKT-xg-hR6"/>
+                                                <constraint firstItem="ACF-jk-Mju" firstAttribute="leading" secondItem="OIB-BT-L4e" secondAttribute="trailing" constant="12" id="gyI-yc-Kca"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FXW-w2-sFi" secondAttribute="bottom" constant="10" id="i0q-Hp-w1o"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="generalImageView" destination="FXW-w2-sFi" id="M9j-Te-m8w"/>
+                                            <outlet property="historyLabel" destination="OIB-BT-L4e" id="4Uz-zL-O3f"/>
+                                            <outlet property="smoredImage" destination="ACF-jk-Mju" id="HwR-XX-1kW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="IAw-wX-dfC" id="l8z-QD-P60"/>
+                                    <outlet property="delegate" destination="IAw-wX-dfC" id="QFU-Xg-Drc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -305,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZd-kl-SYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480.8" y="1803.1484257871066"/>
+            <point key="canvasLocation" x="1255" y="1767"/>
         </scene>
         <!--Redeem-->
         <scene sceneID="Rc6-BN-k1S">
@@ -349,8 +365,10 @@
     <resources>
         <image name="Gift" width="20" height="20"/>
         <image name="cameraIcon" width="20" height="16"/>
+        <image name="general" width="70" height="69"/>
         <image name="gift_icon.png" width="276" height="276"/>
         <image name="history" width="19" height="22"/>
         <image name="homeIcon" width="20" height="19"/>
+        <image name="smored" width="95" height="89"/>
     </resources>
 </document>

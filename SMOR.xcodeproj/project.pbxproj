@@ -22,6 +22,7 @@
 		09660FAD1EE2D32C008B1DD5 /* sm3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FAA1EE2D32C008B1DD5 /* sm3.jpg */; };
 		09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */; };
 		09D34A141EE6942B00167D63 /* gift_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D34A131EE6942B00167D63 /* gift_icon.png */; };
+		09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		09660FAA1EE2D32C008B1DD5 /* sm3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm3.jpg; sourceTree = "<group>"; };
 		09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smore1080x1980.jpeg; sourceTree = "<group>"; };
 		09D34A131EE6942B00167D63 /* gift_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift_icon.png; sourceTree = "<group>"; };
+		09D79DA71EE72E660094072A /* SMHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHistoryTableViewCell.h; sourceTree = "<group>"; };
+		09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHistoryTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		0909826A1EDF32B70034C05F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09D79DA31EE72DFB0094072A /* TableView Cell */,
 				090982771EDF34030034C05F /* History */,
 				090982731EDF334A0034C05F /* QRCodeScanner */,
 				0909826F1EDF331E0034C05F /* Redeem Meal */,
@@ -179,6 +183,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		09D79DA31EE72DFB0094072A /* TableView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				09D79DA71EE72E660094072A /* SMHistoryTableViewCell.h */,
+				09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */,
+			);
+			name = "TableView Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,6 +272,7 @@
 				0957988D1EDDF96100BB76C6 /* AppDelegate.m in Sources */,
 				0957988A1EDDF96100BB76C6 /* main.m in Sources */,
 				090982761EDF34000034C05F /* SMScannerViewController.m in Sources */,
+				09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */,
 				0909827A1EDF341D0034C05F /* SMHistoryViewController.m in Sources */,
 				090982721EDF33470034C05F /* SMRedeemFreeMealViewController.m in Sources */,
 				0909826D1EDF33090034C05F /* SMImageSliderViewController.m in Sources */,

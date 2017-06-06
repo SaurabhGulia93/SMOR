@@ -7,10 +7,11 @@
 //
 
 #import "SMHistoryViewController.h"
+#import "SMHistoryTableViewCell.h"
 
 #define DefaultsKey @"SMORDATA"
 
-@interface SMHistoryViewController ()
+@interface SMHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     // Do any additional setup after loading the view.
 }
@@ -31,6 +35,26 @@
     
     return UIStatusBarStyleLightContent;
 }
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SMHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if(!cell){
+        
+        cell = [[SMHistoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    
+    
+    return cell;
+}
+
 
 
 @end
