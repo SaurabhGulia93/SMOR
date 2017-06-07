@@ -35,23 +35,18 @@
     
     [super viewWillAppear:animated];
     
+    [self updateUI];
+}
+
+-(void)updateUI{
+    
     NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
     NSInteger savedMealsValue = savedMeals ? savedMeals.integerValue : 0;
     
     self.savedMeals = savedMealsValue;
     
-//    if(savedMealsValue == 10) {
-//        
-//        self.redeemButton.userInteractionEnabled = true;
-//        
-//    }else {
-//        
-//        self.redeemButton.userInteractionEnabled = false;
-//    }
-
     self.label.attributedText = [self attrTextForHeaderView:savedMealsValue];
-
 }
 
 - (NSAttributedString *)attrTextForHeaderView:(NSInteger)points
@@ -81,9 +76,9 @@
     NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)savedPoints] attributes:headerTitleDict2];
     [attStr appendAttributedString:headerAttr2];
 
-    if(savedPoints == 100){
+    if(savedPoints >= 100){
         
-        NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", @"You can now redeem a free meal"] attributes:headerTitleDict1];
+        NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", @"You can now redeem a free meal"] attributes:headerTitleDict1];
         [attStr appendAttributedString:headerAttr2];
 
         
@@ -126,15 +121,18 @@
     NSInteger savedPoints = self.savedMeals * 10;
     
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:savedPoints == 100 ? @"Congratulations" : @"Oops!"
-                                  message:savedPoints == 100 ? @"Congratulations You have redeemed a free meal." : @"You can redeem a free meal after successfully earning 100 loyalty points."
+                                  alertControllerWithTitle:savedPoints >= 100 ? @"Congratulations" : @"Oops!"
+                                  message:savedPoints >= 100 ? @"You have successfully redeemed a free meal." : @"You can redeem a free meal after successfully earning 100 loyalty points."
                                   preferredStyle:UIAlertControllerStyleAlert];
+    
+    __weak typeof(self) weakSelf = self;
     
     UIAlertAction* ok = [UIAlertAction
                          actionWithTitle:@"Ok"
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * _Nonnull action) {
                              
+                             [weakSelf updateUserDefaults];
                              
                          }];
     
@@ -144,4 +142,30 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+-(void)updateUserDefaults{
+    
+    if(self.savedMeals >= 10){
+        
+        // Clear UserDefaults
+        
+        [self removeDataWithKey:defaultsKey];
+        
+        for (NSInteger i = 1; i <= self.savedMeals; i++) {
+            
+            [self removeDataWithKey:[NSString stringWithFormat:@"%ld", (long)i]];
+        }
+        
+        [self updateUI];
+    }
+    
+}
+
+- (void)removeDataWithKey:(NSString *)key
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs removeObjectForKey:key];
+    [prefs synchronize];
+}
+
 @end

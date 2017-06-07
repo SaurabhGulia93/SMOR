@@ -167,7 +167,7 @@
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             
-            NSLog(@"QR Value - %@", [metadataObj stringValue]);
+//            NSLog(@"QR Value - %@", [metadataObj stringValue]);
             
             NSString *qrCodeValue = [metadataObj stringValue];
             
@@ -186,15 +186,11 @@
 
 -(void)showSuccessPopup{
     
-    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
+    self.savedMeals += 1;
     
-    NSInteger savedMealsValue = savedMeals ? savedMeals.integerValue : 1;
+    NSInteger savedPoints = self.savedMeals * 10;
     
-    savedMealsValue += 1;
-    
-    NSInteger savedPoints = savedMealsValue * 10;
-    
-    NSString *msg = savedPoints == 100 ? @"You have successfully earned 10 loyalty points. You can now redeem a free meal." : @"You have successfully earned 10 loyalty points. You can redeem a free meal after successfully earning 100 loyalyty points.";
+    NSString *msg = savedPoints >= 100 ? @"You can redeem a free meal." : @"You have successfully earned 10 loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.";
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Congratulations"
@@ -221,38 +217,22 @@
 
 -(void)updateUserDefaults{
     
-    if(self.savedMeals == 10){
+    NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
+    
+    NSDate *date = [NSDate date];
+    
+    [mutDict setObject:date forKey:@"date"];
+    
+    if(self.qrCodeValue){
         
-        // Clear UserDefaults
-        
-        [self removeDataWithKey:defaultsKey];
-        
-        for (NSInteger i = 1; i <= 10; i++) {
-            
-            [self removeDataWithKey:[NSString stringWithFormat:@"%ld", (long)i]];
-        }
-        
-    }else{
-        
-        self.savedMeals += 1;
-        
-        NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
-        
-        NSDate *date = [NSDate date];
-        
-        [mutDict setObject:date forKey:@"date"];
-        
-        if(self.qrCodeValue){
-            
-            [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
-        }
-        
-        [self saveData:mutDict withKey:[NSString stringWithFormat:@"%ld",(long)self.savedMeals]];
-        
-        [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
-        
-        self.tabBarController.selectedIndex = 2;
+        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
     }
+    
+    [self saveData:mutDict withKey:[NSString stringWithFormat:@"%ld",(long)self.savedMeals]];
+    
+    [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
+    
+    self.tabBarController.selectedIndex = 2;
 }
 
 - (IBAction)grantPermission:(UIButton *)sender {

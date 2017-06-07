@@ -62,8 +62,6 @@
         NSDate *date = [dict objectForKey:@"date"];
         NSString *price = [dict objectForKey:@"qrValue"];
         
-        NSLog(@"date = %@", [self.paymentHistoryDateFormatter stringFromDate:date]);
-        
         NSAttributedString *labelStr = [self attrTextWithPrice:[NSString stringWithFormat:@"$%@", price] dateStr:[self.paymentHistoryDateFormatter stringFromDate:date]];
         
         [mutArr addObject:labelStr];
@@ -120,23 +118,23 @@
     mainStyle.alignment = NSTextAlignmentLeft;
     mainStyle.paragraphSpacing = 4;
     
-    NSDictionary *headerTitleDict3 = @{NSFontAttributeName : REGULAR(17),
-                                       NSForegroundColorAttributeName : kDarkerGrayFontColor,
-                                       NSParagraphStyleAttributeName : mainStyle
-                                       };
+//    NSDictionary *headerTitleDict3 = @{NSFontAttributeName : REGULAR(17),
+//                                       NSForegroundColorAttributeName : kDarkerGrayFontColor,
+//                                       NSParagraphStyleAttributeName : mainStyle
+//                                       };
     
     NSDictionary *headerTitleDict2 = @{NSFontAttributeName : REGULAR(17),
                                        NSForegroundColorAttributeName : kBlackFontColor,
                                        NSParagraphStyleAttributeName : mainStyle
                                        };
     
-    NSDictionary *headerTitleDict1 = @{NSFontAttributeName : REGULAR(13),
+    NSDictionary *headerTitleDict1 = @{NSFontAttributeName : REGULAR(12),
                                        NSForegroundColorAttributeName : kLightGrayColor,
                                        NSParagraphStyleAttributeName : mainStyle
                                        };
     
     
-    NSAttributedString *headerAttr1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", @"Bill Paid: "] attributes:headerTitleDict3];
+    NSAttributedString *headerAttr1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", @"Bill Paid: "] attributes:headerTitleDict2];
     [attStr appendAttributedString:headerAttr1];
     
     NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",price] attributes:headerTitleDict2];
