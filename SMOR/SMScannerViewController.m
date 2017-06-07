@@ -9,9 +9,9 @@
 #import "SMScannerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
-#define QR1 @"11.76"
-#define QR2 @"11.70"
-#define QR3 @"11.70"
+#define QR1 @"11.90"
+#define QR2 @"23.80"
+#define QR3 @"35.70"
 
 #define defaultsKey @"SMORDATA"
 
@@ -171,7 +171,7 @@
             
             NSString *qrCodeValue = [metadataObj stringValue];
             
-            if([qrCodeValue isEqualToString:QR1] || [qrCodeValue isEqualToString:QR2]|| [qrCodeValue isEqualToString:QR3]){
+            if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){

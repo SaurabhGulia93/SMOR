@@ -154,7 +154,7 @@
         [activeTimer invalidate];
         activeTimer = nil;
     }
-    activeTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(slideImage) userInfo:nil repeats:YES];
+    activeTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(slideImage) userInfo:nil repeats:YES];
 }
 
 -(void)startAutoPlay
