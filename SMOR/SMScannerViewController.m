@@ -9,15 +9,20 @@
 #import "SMScannerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
-#define QR1 @"11.70"
+#define QR1 @"11.76"
 #define QR2 @"11.70"
 #define QR3 @"11.70"
+
+#define defaultsKey @"SMORDATA"
 
 @interface SMScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, assign) BOOL shouldStopScan;
+@property (nonatomic, assign) NSInteger savedMeals;
+@property (nonatomic, assign) NSString *qrCodeValue;
+
 
 @end
 
@@ -33,7 +38,40 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.shouldStopScan = false;
     [self.permissionView setHidden:true];
+    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
+    
+    NSInteger savedMealsValue = savedMeals ? savedMeals.integerValue : 0;
+    
+    self.savedMeals = savedMealsValue;
+
 }
+
+-(NSNumber *)getDataForKey:(NSString *)key{
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSNumber *data = [prefs objectForKey:key];
+    return data;
+}
+
+- (void)saveData:(id)data withKey:(NSString *)key
+{
+    if (!data) {
+        return;
+    }
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:data forKey:key];
+    [prefs synchronize];
+}
+
+- (void)removeDataWithKey:(NSString *)key
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs removeObjectForKey:key];
+    [prefs synchronize];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -135,7 +173,11 @@
             
             if([qrCodeValue isEqualToString:QR1] || [qrCodeValue isEqualToString:QR2]|| [qrCodeValue isEqualToString:QR3]){
                 
-                [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
+                self.qrCodeValue = qrCodeValue;
+                if(!_shouldStopScan){
+                    [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
+                    _shouldStopScan = true;
+                }
             }
             
         }
@@ -144,26 +186,73 @@
 
 -(void)showSuccessPopup{
     
+    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
+    
+    NSInteger savedMealsValue = savedMeals ? savedMeals.integerValue : 1;
+    
+    savedMealsValue += 1;
+    
+    NSInteger savedPoints = savedMealsValue * 10;
+    
+    NSString *msg = savedPoints == 100 ? @"You have successfully earned 10 loyalty points. You can now redeem a free meal." : @"You have successfully earned 10 loyalty points. You can redeem a free meal after successfully earning 100 loyalyty points.";
+    
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Congratulations"
-                                  message:@"You have successfully earned 10 loyalty points. You can redeem a free meal after successfully earning 100 loyalyty points."
+                                  message:msg
                                   preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    __weak typeof(self) weakSelf = self;
     
     UIAlertAction* ok = [UIAlertAction
                          actionWithTitle:@"Ok"
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * _Nonnull action) {
                              
-                             self.tabBarController.selectedIndex = 3;
+                             [weakSelf updateUserDefaults];
                              
                          }];
     
     [alert addAction:ok];
     
-    //    [alert addAction:cancel];
-    
     [self presentViewController:alert animated:YES completion:nil];
 
+}
+
+-(void)updateUserDefaults{
+    
+    if(self.savedMeals == 10){
+        
+        // Clear UserDefaults
+        
+        [self removeDataWithKey:defaultsKey];
+        
+        for (NSInteger i = 1; i <= 10; i++) {
+            
+            [self removeDataWithKey:[NSString stringWithFormat:@"%ld", (long)i]];
+        }
+        
+    }else{
+        
+        self.savedMeals += 1;
+        
+        NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
+        
+        NSDate *date = [NSDate date];
+        
+        [mutDict setObject:date forKey:@"date"];
+        
+        if(self.qrCodeValue){
+            
+            [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
+        }
+        
+        [self saveData:mutDict withKey:[NSString stringWithFormat:@"%ld",(long)self.savedMeals]];
+        
+        [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
+        
+        self.tabBarController.selectedIndex = 2;
+    }
 }
 
 - (IBAction)grantPermission:(UIButton *)sender {

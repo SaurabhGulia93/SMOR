@@ -56,6 +56,8 @@
 
 - (NSAttributedString *)attrTextForHeaderView:(NSInteger)points
 {
+    NSInteger savedPoints = points * 10;
+    
     NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] init];
     
     NSMutableParagraphStyle *mainStyle = [[NSMutableParagraphStyle alloc] init];
@@ -76,10 +78,10 @@
     NSAttributedString *headerAttr1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@  :  ", @"Earned Loyalty Points"] attributes:headerTitleDict2];
     [attStr appendAttributedString:headerAttr1];
 
-    NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)points] attributes:headerTitleDict2];
+    NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)savedPoints] attributes:headerTitleDict2];
     [attStr appendAttributedString:headerAttr2];
 
-    if(points == 100){
+    if(savedPoints == 100){
         
         NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", @"You can now redeem a free meal"] attributes:headerTitleDict1];
         [attStr appendAttributedString:headerAttr2];
@@ -121,9 +123,11 @@
 
 - (IBAction)redeemButtonTapped:(UIButton *)sender {
     
+    NSInteger savedPoints = self.savedMeals * 10;
+    
     UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:self.savedMeals == 100 ? @"Congratulations" : @"Oops!"
-                                  message:self.savedMeals == 100 ? @"Congratulations You have redeemed a free meal." : @"You can redeem a free meal after successfully earning 100 loyalty points."
+                                  alertControllerWithTitle:savedPoints == 100 ? @"Congratulations" : @"Oops!"
+                                  message:savedPoints == 100 ? @"Congratulations You have redeemed a free meal." : @"You can redeem a free meal after successfully earning 100 loyalty points."
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction

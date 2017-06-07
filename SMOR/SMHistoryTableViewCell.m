@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.generalImageView.layer.cornerRadius = 4;
+    self.generalImageView.layer.masksToBounds = true;
+    
     // Initialization code
 }
 
