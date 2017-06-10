@@ -122,7 +122,7 @@
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:savedPoints >= 100 ? @"Congratulations" : @"Oops!"
-                                  message:savedPoints >= 100 ? @"You have successfully redeemed a free meal." : @"You can redeem a free meal after successfully earning 100 loyalty points."
+                                  message:savedPoints >= 100 ? @"You have successfully redeemed a free meal. Please show this message at the counter to get a free meal." : @"You can redeem a free meal after successfully earning 100 loyalty points."
                                   preferredStyle:UIAlertControllerStyleAlert];
     
     __weak typeof(self) weakSelf = self;

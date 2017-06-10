@@ -30,6 +30,8 @@
     [[UITabBar appearance] setTintColor:kWhiteColor];
     [[UITabBar appearance] setBarTintColor:kRedColor];
     
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
+    
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName : MEDIUM(14.0)} forState:UIControlStateNormal];
         
     return YES;

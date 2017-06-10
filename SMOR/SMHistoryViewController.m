@@ -11,7 +11,7 @@
 #import "MLStyle.h"
 
 #define defaultsKey @"SMORDATA"
-#define paymentHistoryTimeFormat @"dd-MMM-yyyy"
+#define paymentHistoryTimeFormat @"dd-MMM-yyyy 'at' HH:mm"
 
 @interface SMHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -62,7 +62,7 @@
         NSDate *date = [dict objectForKey:@"date"];
         NSString *price = [dict objectForKey:@"qrValue"];
         
-        NSAttributedString *labelStr = [self attrTextWithPrice:[NSString stringWithFormat:@"$%@", price] dateStr:[self.paymentHistoryDateFormatter stringFromDate:date]];
+        NSAttributedString *labelStr = [self attrTextWithPrice:[price containsString:@"$"] ? [NSString stringWithFormat:@"%@", price] : [NSString stringWithFormat:@"$%@", price] dateStr:[self.paymentHistoryDateFormatter stringFromDate:date]];
         
         [mutArr addObject:labelStr];
     }
@@ -83,12 +83,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(UIStatusBarStyle)preferredStatusBarStyle{
-    
-    return UIStatusBarStyleLightContent;
-}
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
