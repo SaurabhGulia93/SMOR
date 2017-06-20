@@ -23,6 +23,8 @@
 		09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */; };
 		09D34A141EE6942B00167D63 /* gift_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D34A131EE6942B00167D63 /* gift_icon.png */; };
 		09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */; };
+		09E542481EF99C82002C9336 /* SBSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E542461EF99C82002C9336 /* SBSliderView.m */; };
+		09E542491EF99C82002C9336 /* SBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E542471EF99C82002C9336 /* SBSliderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,9 @@
 		09D34A131EE6942B00167D63 /* gift_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift_icon.png; sourceTree = "<group>"; };
 		09D79DA71EE72E660094072A /* SMHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHistoryTableViewCell.h; sourceTree = "<group>"; };
 		09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHistoryTableViewCell.m; sourceTree = "<group>"; };
+		09E542451EF99C82002C9336 /* SBSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSliderView.h; sourceTree = "<group>"; };
+		09E542461EF99C82002C9336 /* SBSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSliderView.m; sourceTree = "<group>"; };
+		09E542471EF99C82002C9336 /* SBSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSliderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +169,7 @@
 			children = (
 				094990251EE1D7B900FB3089 /* Assessts */,
 				0909827B1EDF386C0034C05F /* MLStyle.h */,
+				09E542441EF99C6E002C9336 /* Slider */,
 				0909826A1EDF32B70034C05F /* View Controllers */,
 				090982691EDF329F0034C05F /* App Delegate */,
 				095798911EDDF96100BB76C6 /* Main.storyboard */,
@@ -190,6 +196,16 @@
 				09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */,
 			);
 			name = "TableView Cell";
+			sourceTree = "<group>";
+		};
+		09E542441EF99C6E002C9336 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				09E542451EF99C82002C9336 /* SBSliderView.h */,
+				09E542461EF99C82002C9336 /* SBSliderView.m */,
+				09E542471EF99C82002C9336 /* SBSliderView.xib */,
+			);
+			name = Slider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E542491EF99C82002C9336 /* SBSliderView.xib in Resources */,
 				09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */,
 				095798981EDDF96100BB76C6 /* LaunchScreen.storyboard in Resources */,
 				09D34A141EE6942B00167D63 /* gift_icon.png in Resources */,
@@ -273,6 +290,7 @@
 				0957988A1EDDF96100BB76C6 /* main.m in Sources */,
 				090982761EDF34000034C05F /* SMScannerViewController.m in Sources */,
 				09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */,
+				09E542481EF99C82002C9336 /* SBSliderView.m in Sources */,
 				0909827A1EDF341D0034C05F /* SMHistoryViewController.m in Sources */,
 				090982721EDF33470034C05F /* SMRedeemFreeMealViewController.m in Sources */,
 				0909826D1EDF33090034C05F /* SMImageSliderViewController.m in Sources */,
