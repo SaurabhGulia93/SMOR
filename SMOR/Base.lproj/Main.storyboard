@@ -374,7 +374,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sWo-4C-hy5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="354"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="376"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="2ah-Cn-t9N" customClass="CircleLayout"/>
                                 <cells>
@@ -395,8 +395,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sWo-4C-hy5" firstAttribute="top" secondItem="41B-Gv-ggL" secondAttribute="bottom" id="Gfk-Jy-3OO"/>
-                            <constraint firstItem="OZ4-Yv-AjR" firstAttribute="top" secondItem="sWo-4C-hy5" secondAttribute="bottom" constant="200" id="Tem-Ic-pSb"/>
+                            <constraint firstItem="sWo-4C-hy5" firstAttribute="top" secondItem="41B-Gv-ggL" secondAttribute="bottom" constant="8" id="Gfk-Jy-3OO"/>
+                            <constraint firstItem="OZ4-Yv-AjR" firstAttribute="top" secondItem="sWo-4C-hy5" secondAttribute="bottom" constant="170" id="Tem-Ic-pSb"/>
                             <constraint firstAttribute="trailing" secondItem="sWo-4C-hy5" secondAttribute="trailing" id="aOZ-KQ-Q9F"/>
                             <constraint firstItem="sWo-4C-hy5" firstAttribute="leading" secondItem="eIF-47-f5a" secondAttribute="leading" id="oD9-fl-Erv"/>
                         </constraints>

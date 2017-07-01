@@ -38,9 +38,10 @@
     NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
     self.savedMeals = savedMeals ? savedMeals.integerValue : 0;
-    self.savedMeals = 9;
+    self.savedMeals = 4;
 //    [self createDataSource:savedMealsValue];
 
+    self.collectionView.userInteractionEnabled = NO;
     
     [self.collectionView reloadData];
 
@@ -70,8 +71,10 @@
     Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     if(indexPath.item < self.savedMeals) {
         cell.smored = true;
+        cell.alpha = 1;
     }else{
         cell.smored = false;
+        cell.alpha = 0.5;
     }
     cell.labelTextTag = indexPath.item + 1;
 //    cell.backgroundColor = [UIColor yellowColor];
