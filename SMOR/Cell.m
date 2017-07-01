@@ -24,8 +24,12 @@
 {
     //// Color Declarations
 //    UIColor* fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
-    
-    UIColor* fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
+    UIColor* fillColor;
+    if(self.smored){
+        fillColor = [UIColor blueColor];
+    }else{
+        fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
+    }
 
     //// cell Drawing
     UIBezierPath* cellPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];

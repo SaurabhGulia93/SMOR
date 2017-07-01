@@ -64,10 +64,16 @@
                                                     layoutAttributesForCellWithIndexPath:indexPath];
 
     attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
+//    attributes.center = CGPointMake(_center.x + _radius *
+//                                    cosf(2 * indexPath.item * M_PI / _cellCount),
+//                                    _center.y + _radius *
+//                                    sinf(2 * indexPath.item * M_PI / _cellCount));
+    
     attributes.center = CGPointMake(_center.x + _radius *
-                                    cosf(2 * indexPath.item * M_PI / _cellCount),
+                                    sinf(2 * indexPath.item * -M_PI / _cellCount),
                                     _center.y + _radius *
-                                    sinf(2 * indexPath.item * M_PI / _cellCount));
+                                    cosf(2 * indexPath.item * -M_PI / _cellCount));
+    
     return attributes;
 }
 
@@ -111,10 +117,10 @@
         attributes.alpha = 0.0;
         attributes.center = CGPointMake(_center.x, _center.y);
         attributes.size = CGSizeMake(ITEM_SIZE * 2, ITEM_SIZE * 2);
-        NSLog(@"Appearing layout for **inserted** object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
+//        NSLog(@"Appearing layout for **inserted** object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
     } else {
         // all other objects
-        NSLog(@"Appearing layout for other object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
+//        NSLog(@"Appearing layout for other object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
     }
     return attributes;
 }
@@ -128,10 +134,10 @@
         attributes.alpha = 0.0;
         attributes.center = CGPointMake(_center.x, _center.y);
         attributes.transform3D = CATransform3DMakeScale(0.1, 0.1, 1.0);
-        NSLog(@"Disappearing layout for **deleted** object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
+//        NSLog(@"Disappearing layout for **deleted** object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
     } else {
         // all other objects
-        NSLog(@"Disappearing layout for other object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
+//        NSLog(@"Disappearing layout for other object [%d, %d] set", itemIndexPath.section, itemIndexPath.row);
     }
 
     return attributes;

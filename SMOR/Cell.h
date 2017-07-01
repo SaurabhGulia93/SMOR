@@ -10,6 +10,6 @@
 
 @interface Cell : UICollectionViewCell
 
-
+@property (nonatomic, assign) BOOL smored;
 
 @end
