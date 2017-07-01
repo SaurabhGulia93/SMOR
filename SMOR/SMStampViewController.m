@@ -33,7 +33,7 @@
     // set background color
     //    self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
-    self.collectionView.backgroundColor = [UIColor yellowColor];
+//    self.collectionView.backgroundColor = [UIColor yellowColor];
     
     NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
@@ -73,6 +73,7 @@
     }else{
         cell.smored = false;
     }
+    cell.labelTextTag = indexPath.item + 1;
 //    cell.backgroundColor = [UIColor yellowColor];
     return cell;
 }
