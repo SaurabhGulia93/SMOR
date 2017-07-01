@@ -19,20 +19,22 @@
     if (self) {
         //NSLog(@"Cell::initWithFrame");
         self.backgroundColor = [UIColor clearColor];
+        
+        self.label = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.label.frame = CGRectMake((self.frame.size.width - labelSize)/2, (self.frame.size.height - labelSize)/2, labelSize, labelSize);
+        self.label.textColor = [UIColor whiteColor];
+        self.label.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:self.label];
+        
+        self.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
+
     }
     return self;
 }
 
 -(void)setLabelTextTag:(NSInteger)labelTextTag{
     
-    self.label = [[UILabel alloc] initWithFrame:CGRectZero];
     self.label.text = [NSString stringWithFormat:@"%ld",(long)labelTextTag];
-    self.label.frame = CGRectMake((self.frame.size.width - labelSize)/2, (self.frame.size.height - labelSize)/2, labelSize, labelSize);
-    self.label.textColor = [UIColor whiteColor];
-    self.label.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:self.label];
-    
-    self.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
     
 //    self.label.backgroundColor = [UIColor brownColor];
 }

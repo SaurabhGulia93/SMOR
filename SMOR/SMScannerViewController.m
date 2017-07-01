@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"QR Scanner";
     self.permissionButton.layer.cornerRadius = 2;
     self.permissionButton.layer.masksToBounds = YES;
     // Do any additional setup after loading the view.
@@ -186,17 +187,22 @@
 
 -(void)showSuccessPopup{
     
+    NSInteger pointsEarned = 10;
+    
     if([_qrCodeValue containsString:QR1]){
         self.savedMeals += 1;
+        pointsEarned = 10;
     }else if ([_qrCodeValue containsString:QR2]){
         self.savedMeals += 2;
+        pointsEarned = 20;
     }else if ([_qrCodeValue containsString:QR3]){
         self.savedMeals += 3;
+        pointsEarned = 30;
     }
     
     NSInteger savedPoints = self.savedMeals * 10;
     
-    NSString *msg = savedPoints >= 100 ? @"You can redeem a free meal." : @"You have successfully earned 10 loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.";
+    NSString *msg = savedPoints >= 100 ? @"You can redeem a free meal." : [NSString stringWithFormat:@"You have successfully earned %ld loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.", (long)pointsEarned];
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Congratulations"

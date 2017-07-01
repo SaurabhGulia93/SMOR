@@ -23,29 +23,35 @@
 @implementation SMStampViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.cellCount = 10;
     
+    self.title = @"Stamp Card";
+    
     // register our custom Cell
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"Cell"];
-    
+    self.collectionView.userInteractionEnabled = NO;
+
     // set background color
     //    self.collectionView.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
     
 //    self.collectionView.backgroundColor = [UIColor yellowColor];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
     NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
     self.savedMeals = savedMeals ? savedMeals.integerValue : 0;
-    self.savedMeals = 4;
-//    [self createDataSource:savedMealsValue];
-
-    self.collectionView.userInteractionEnabled = NO;
+    //    self.savedMeals = 4;
     
     [self.collectionView reloadData];
-
 }
+
 
 -(void)viewWillLayoutSubviews{
     
@@ -77,6 +83,7 @@
         cell.alpha = 0.5;
     }
     cell.labelTextTag = indexPath.item + 1;
+    [cell setNeedsDisplay];
 //    cell.backgroundColor = [UIColor yellowColor];
     return cell;
 }
