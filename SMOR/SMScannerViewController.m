@@ -186,7 +186,13 @@
 
 -(void)showSuccessPopup{
     
-    self.savedMeals += 1;
+    if([_qrCodeValue containsString:QR1]){
+        self.savedMeals += 1;
+    }else if ([_qrCodeValue containsString:QR2]){
+        self.savedMeals += 2;
+    }else if ([_qrCodeValue containsString:QR3]){
+        self.savedMeals += 3;
+    }
     
     NSInteger savedPoints = self.savedMeals * 10;
     

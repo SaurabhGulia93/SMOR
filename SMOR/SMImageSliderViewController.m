@@ -8,6 +8,8 @@
 
 #import "SMImageSliderViewController.h"
 #import "MLStyle.h"
+#import "SBSliderView.h"
+
 
 @interface SMImageSliderViewController ()<UIScrollViewDelegate>
 
@@ -18,6 +20,7 @@
 @implementation SMImageSliderViewController{
     BOOL autoSrcollEnabled;
     NSTimer *activeTimer;
+    SBSliderView *slider;
 }
 
 
@@ -27,40 +30,51 @@
     self.imagesArr = [[NSMutableArray alloc] initWithObjects:@"sm1.jpg", @"sm2.jpg", @"sm3.jpg", nil];
     autoSrcollEnabled = true;
     
-    _sliderScrollView.backgroundColor = kBlackFontColor;
-    _sliderScrollView.pagingEnabled = YES;
-    _sliderScrollView.delegate = self;
-    _pageControl.numberOfPages = [_imagesArr count];
-    _sliderScrollView.contentSize = CGSizeMake((_sliderScrollView.frame.size.width * [_imagesArr count] * 3), _sliderScrollView.frame.size.height);
+//    _sliderScrollView.backgroundColor = kBlackFontColor;
+//    _sliderScrollView.pagingEnabled = YES;
+//    _sliderScrollView.delegate = self;
+//    _pageControl.numberOfPages = [_imagesArr count];
+//    _sliderScrollView.contentSize = CGSizeMake((_sliderScrollView.frame.size.width * [_imagesArr count] * 3), _sliderScrollView.frame.size.height);
+//    
+//    int mainCount = 0;
+//    for (int x = 0; x < 3; x++) {
+//    
+//        for (int i=0; i < [_imagesArr count]; i++) {
+//            
+//            UIImageView *imageV = [[UIImageView alloc] init];
+//            imageV.backgroundColor = [UIColor clearColor];
+//            imageV.image = [UIImage imageNamed:(NSString *)[_imagesArr objectAtIndex:i]];
+//            CGRect frameRect;
+//            frameRect.origin.y = 0.0f;
+//            frameRect.size.width = _sliderScrollView.frame.size.width;
+//            frameRect.size.height = _sliderScrollView.frame.size.height;
+//            frameRect.origin.x = (frameRect.size.width * mainCount);
+//            imageV.frame = frameRect;
+//            imageV.contentMode = UIViewContentModeScaleAspectFit;
+//            [_sliderScrollView addSubview:imageV];
+//            imageV.clipsToBounds = YES;
+//            imageV.userInteractionEnabled = YES;
+//            
+//            mainCount++;
+//        }
+//        
+//    }
+//    
+//    CGFloat startX = (CGFloat)[_imagesArr count] * [UIScreen mainScreen].bounds.size.width;
+//    [_sliderScrollView setContentOffset:CGPointMake(startX, 0) animated:NO];
+//    [self startAutoPlay];
     
-    int mainCount = 0;
-    for (int x = 0; x < 3; x++) {
     
-        for (int i=0; i < [_imagesArr count]; i++) {
-            
-            UIImageView *imageV = [[UIImageView alloc] init];
-            imageV.backgroundColor = [UIColor clearColor];
-            imageV.image = [UIImage imageNamed:(NSString *)[_imagesArr objectAtIndex:i]];
-            CGRect frameRect;
-            frameRect.origin.y = 0.0f;
-            frameRect.size.width = _sliderScrollView.frame.size.width;
-            frameRect.size.height = _sliderScrollView.frame.size.height;
-            frameRect.origin.x = (frameRect.size.width * mainCount);
-            imageV.frame = frameRect;
-            imageV.contentMode = UIViewContentModeScaleAspectFit;
-            [_sliderScrollView addSubview:imageV];
-            imageV.clipsToBounds = YES;
-            imageV.userInteractionEnabled = YES;
-            
-            mainCount++;
-        }
-        
-    }
     
-    CGFloat startX = (CGFloat)[_imagesArr count] * [UIScreen mainScreen].bounds.size.width;
-    [_sliderScrollView setContentOffset:CGPointMake(startX, 0) animated:NO];
+    self.sliderScrollView.hidden = true;
+    self.pageControl.hidden = true;
     
-    [self startAutoPlay];
+    slider = [[[NSBundle mainBundle] loadNibNamed:@"SBSliderView" owner:self options:nil] firstObject];
+    slider.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200);
+    [self.view addSubview:slider];
+    [slider createSliderWithImages:_imagesArr WithAutoScroll:true inView:self.view];
+
+    
     
     // Do any additional setup after loading the view.
 }

@@ -24,7 +24,9 @@
     
     imagesArray = [NSArray arrayWithArray:images];
     autoSrcollEnabled = isAutoScrollEnabled;
-
+    
+//    _pageIndicator.backgroundColor = [UIColor blueColor];
+    _sliderMainScroller.backgroundColor = [UIColor yellowColor];
     _sliderMainScroller.pagingEnabled = YES;
     _sliderMainScroller.delegate = self;
     _pageIndicator.numberOfPages = [imagesArray count];

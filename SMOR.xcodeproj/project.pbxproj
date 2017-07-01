@@ -25,6 +25,9 @@
 		09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */; };
 		09E542481EF99C82002C9336 /* SBSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E542461EF99C82002C9336 /* SBSliderView.m */; };
 		09E542491EF99C82002C9336 /* SBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E542471EF99C82002C9336 /* SBSliderView.xib */; };
+		09FD78261F0816DB00894177 /* CircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FD78251F0816DB00894177 /* CircleLayout.m */; };
+		09FD782B1F08170A00894177 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FD782A1F08170A00894177 /* Cell.m */; };
+		09FD782F1F08197B00894177 /* SMStampViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FD782E1F08197B00894177 /* SMStampViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,12 @@
 		09E542451EF99C82002C9336 /* SBSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSliderView.h; sourceTree = "<group>"; };
 		09E542461EF99C82002C9336 /* SBSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSliderView.m; sourceTree = "<group>"; };
 		09E542471EF99C82002C9336 /* SBSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSliderView.xib; sourceTree = "<group>"; };
+		09FD78241F0816DB00894177 /* CircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleLayout.h; sourceTree = "<group>"; };
+		09FD78251F0816DB00894177 /* CircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLayout.m; sourceTree = "<group>"; };
+		09FD78291F08170A00894177 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		09FD782A1F08170A00894177 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		09FD782D1F08197B00894177 /* SMStampViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStampViewController.h; sourceTree = "<group>"; };
+		09FD782E1F08197B00894177 /* SMStampViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStampViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +91,7 @@
 		0909826A1EDF32B70034C05F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09FD77EC1F0815D100894177 /* Stamp collection View Controller */,
 				09D79DA31EE72DFB0094072A /* TableView Cell */,
 				090982771EDF34030034C05F /* History */,
 				090982731EDF334A0034C05F /* QRCodeScanner */,
@@ -208,6 +218,43 @@
 			name = Slider;
 			sourceTree = "<group>";
 		};
+		09FD77EC1F0815D100894177 /* Stamp collection View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				09FD782C1F08193500894177 /* SMStampViewController */,
+				09FD78281F0816F900894177 /* Views */,
+				09FD78231F0816C400894177 /* Layouts */,
+			);
+			name = "Stamp collection View Controller";
+			sourceTree = "<group>";
+		};
+		09FD78231F0816C400894177 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				09FD78241F0816DB00894177 /* CircleLayout.h */,
+				09FD78251F0816DB00894177 /* CircleLayout.m */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		09FD78281F0816F900894177 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09FD78291F08170A00894177 /* Cell.h */,
+				09FD782A1F08170A00894177 /* Cell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		09FD782C1F08193500894177 /* SMStampViewController */ = {
+			isa = PBXGroup;
+			children = (
+				09FD782D1F08197B00894177 /* SMStampViewController.h */,
+				09FD782E1F08197B00894177 /* SMStampViewController.m */,
+			);
+			name = SMStampViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +338,9 @@
 				090982761EDF34000034C05F /* SMScannerViewController.m in Sources */,
 				09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */,
 				09E542481EF99C82002C9336 /* SBSliderView.m in Sources */,
+				09FD782B1F08170A00894177 /* Cell.m in Sources */,
+				09FD782F1F08197B00894177 /* SMStampViewController.m in Sources */,
+				09FD78261F0816DB00894177 /* CircleLayout.m in Sources */,
 				0909827A1EDF341D0034C05F /* SMHistoryViewController.m in Sources */,
 				090982721EDF33470034C05F /* SMRedeemFreeMealViewController.m in Sources */,
 				0909826D1EDF33090034C05F /* SMImageSliderViewController.m in Sources */,
