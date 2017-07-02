@@ -14,6 +14,7 @@
 @interface SMImageSliderViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *imagesArr;
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -27,12 +28,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _pageControl = [[UIPageControl alloc] init];
+    [self.view addSubview:self.pageControl];
+    
     self.imagesArr = [[NSMutableArray alloc] initWithObjects:@"slide1", @"slide2", @"slide3", nil];
+    
+    _pageControl.numberOfPages = _imagesArr.count;
+    
     autoSrcollEnabled = true;
     
     self.view.backgroundColor = kBlackFontColor;
     
-    _sliderScrollView.backgroundColor = kBlackFontColor;
+    _sliderScrollView.backgroundColor = kBlueColor;
     _sliderScrollView.pagingEnabled = YES;
     _sliderScrollView.delegate = self;
     _sliderScrollView.contentSize = CGSizeMake((_sliderScrollView.frame.size.width * [_imagesArr count] * 3), _sliderScrollView.frame.size.height);
@@ -65,6 +72,7 @@
     [_sliderScrollView setContentOffset:CGPointMake(startX, 0) animated:NO];
     [self startAutoPlay];
     
+    self.pageControl.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - _pageControl.frame.size.width)/2, _sliderScrollView.frame.size.height - 35, _pageControl.frame.size.width, _pageControl.frame.size.height);
     
     
 //    self.sliderScrollView.hidden = true;
@@ -89,6 +97,8 @@
 
 #pragma mark - UIScrollView delegate
 
+#pragma mark - UIScrollView delegate
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat width = scrollView.frame.size.width;
     NSInteger page = (scrollView.contentOffset.x + (0.5f * width)) / width;
@@ -109,9 +119,11 @@
     }
     
     if (moveToPage < [_imagesArr count]) {
+        _pageControl.currentPage = moveToPage;
     } else {
         
         moveToPage = moveToPage % [_imagesArr count];
+        _pageControl.currentPage = moveToPage;
     }
     if (([_imagesArr count] > 1) && (autoSrcollEnabled)) {
         [self startTimerThread];
@@ -139,9 +151,11 @@
     }
     
     if (moveToPage < [_imagesArr count]) {
+        _pageControl.currentPage = moveToPage;
     } else {
         
         moveToPage = moveToPage % [_imagesArr count];
+        _pageControl.currentPage = moveToPage;
     }
 }
 
@@ -197,6 +211,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end
