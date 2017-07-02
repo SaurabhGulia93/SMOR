@@ -45,7 +45,8 @@
 //    UIColor* fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
     UIColor* fillColor;
     if(self.smored){
-        fillColor = kBlueColor;
+//        fillColor = RGB(89, 203, 232);
+        fillColor = RGB(83, 201, 233);
     }else{
         fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
     }
