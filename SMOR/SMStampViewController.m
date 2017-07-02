@@ -28,7 +28,7 @@
     
     self.cellCount = 10;
     
-    self.title = @"Stamp Card";
+    self.title = @"Loyalty Stamps";
     
     // register our custom Cell
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"Cell"];
@@ -50,6 +50,8 @@
     //    self.savedMeals = 4;
     
     [self.collectionView reloadData];
+    
+    self.label.attributedText = [self attrTextForHeaderView:self.savedMeals];
 }
 
 
@@ -65,6 +67,49 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSNumber *data = [prefs objectForKey:key];
     return data;
+}
+
+- (NSAttributedString *)attrTextForHeaderView:(NSInteger)points
+{
+    NSInteger savedPoints = points * 10;
+    
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] init];
+    
+    NSMutableParagraphStyle *mainStyle = [[NSMutableParagraphStyle alloc] init];
+    mainStyle.alignment = NSTextAlignmentCenter;
+    mainStyle.paragraphSpacing = 4;
+    
+    NSDictionary *headerTitleDict2 = @{NSFontAttributeName : REGULAR(17),
+                                       NSForegroundColorAttributeName : kDarkerGrayFontColor,
+                                       NSParagraphStyleAttributeName : mainStyle
+                                       };
+    
+    NSDictionary *headerTitleDict1 = @{NSFontAttributeName : REGULAR(12),
+                                       NSForegroundColorAttributeName : kDarkerGrayFontColor,
+                                       NSParagraphStyleAttributeName : mainStyle
+                                       };
+    
+    
+//    NSAttributedString *headerAttr1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@  :  ", @"Earned Loyalty Points"] attributes:headerTitleDict2];
+//    [attStr appendAttributedString:headerAttr1];
+//    
+//    NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld",(long)savedPoints] attributes:headerTitleDict2];
+//    [attStr appendAttributedString:headerAttr2];
+    
+    if(savedPoints >= 100){
+        
+        NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", @"You can now redeem a free meal"] attributes:headerTitleDict2];
+        [attStr appendAttributedString:headerAttr2];
+        
+        
+    }else{
+        
+        NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", @"You can redeem a free meal once you earn 10 loyalty stamps"] attributes:headerTitleDict2];
+        [attStr appendAttributedString:headerAttr2];
+        
+    }
+    
+    return [[NSAttributedString alloc] initWithAttributedString:attStr];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

@@ -28,6 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.opening.textColor = kWhiteColor;
+    self.time1.textColor = kWhiteColor;
+    self.time2.textColor = kWhiteColor;
+    self.address.textColor = kWhiteColor;
+    self.address2.textColor = kWhiteColor;
+    
     _pageControl = [[UIPageControl alloc] init];
     [self.view addSubview:self.pageControl];
     
@@ -39,7 +45,7 @@
     
     self.view.backgroundColor = kBlackFontColor;
     
-    _sliderScrollView.backgroundColor = kBlueColor;
+//    _sliderScrollView.backgroundColor = kBlueColor;
     _sliderScrollView.pagingEnabled = YES;
     _sliderScrollView.delegate = self;
     _sliderScrollView.contentSize = CGSizeMake((_sliderScrollView.frame.size.width * [_imagesArr count] * 3), _sliderScrollView.frame.size.height);

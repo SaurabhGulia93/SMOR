@@ -202,7 +202,12 @@
     
     NSInteger savedPoints = self.savedMeals * 10;
     
-    NSString *msg = savedPoints >= 100 ? @"You can redeem a free meal." : [NSString stringWithFormat:@"You have successfully earned %ld loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.", (long)pointsEarned];
+    NSString *msg = savedPoints == 100 ? @"You can redeem a free meal." : [NSString stringWithFormat:@"You have successfully earned %ld loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.", (long)pointsEarned];
+    
+    if(savedPoints > 100){
+        
+        msg = @"You have successfully redeemed a free meal";
+    }
     
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Congratulations"
@@ -229,22 +234,39 @@
 
 -(void)updateUserDefaults{
     
-    NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
+    NSInteger savedPoints = self.savedMeals * 10;
     
-    NSDate *date = [NSDate date];
-    
-    [mutDict setObject:date forKey:@"date"];
-    
-    if(self.qrCodeValue){
+    if(savedPoints > 100){
         
-        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
+        // Clear UserDefaults
+        
+        [self removeDataWithKey:defaultsKey];
+        
+//        for (NSInteger i = 1; i <= self.savedMeals; i++) {
+//            
+//            [self removeDataWithKey:[NSString stringWithFormat:@"%ld", (long)i]];
+//        }
+
+        return;
     }
+
     
-    [self saveData:mutDict withKey:[NSString stringWithFormat:@"%ld",(long)self.savedMeals]];
+//    NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
+//    
+//    NSDate *date = [NSDate date];
+//    
+//    [mutDict setObject:date forKey:@"date"];
+//    
+//    if(self.qrCodeValue){
+//        
+//        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
+//    }
+//    
+//    [self saveData:mutDict withKey:[NSString stringWithFormat:@"%ld",(long)self.savedMeals]];
     
     [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
     
-    self.tabBarController.selectedIndex = 2;
+    self.tabBarController.selectedIndex = 3;
 }
 
 - (IBAction)grantPermission:(UIButton *)sender {

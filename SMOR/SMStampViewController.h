@@ -11,5 +11,6 @@
 @interface SMStampViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) NSInteger cellCount;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

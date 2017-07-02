@@ -105,26 +105,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday to Friday: 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-Ag-E2h">
-                                <rect key="frame" x="8" y="413" width="359" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-Ag-E2h">
+                                <rect key="frame" x="8" y="406" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday : 10:30 AM to 5:30 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW7-hi-NYH">
-                                <rect key="frame" x="8" y="442" width="359" height="21"/>
+                                <rect key="frame" x="8" y="435" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Do-frc">
-                                <rect key="frame" x="24" y="485" width="327" height="24"/>
+                                <rect key="frame" x="24" y="478" width="327" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Raffles place, #B1–23, Singapore 048616." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-Et-8Uh">
-                                <rect key="frame" x="8" y="519" width="359" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Raffles place, #B1–23, Singapore 048616. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-Et-8Uh">
+                                <rect key="frame" x="8" y="512" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -133,7 +133,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="aHv-Do-frc" secondAttribute="trailing" constant="8" id="0fL-EC-Bjq"/>
-                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="15" id="3Gp-VW-dTo"/>
+                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" relation="lessThanOrEqual" secondItem="zKi-OZ-CY3" secondAttribute="bottom" priority="999" constant="5" id="0g8-UA-Nwz"/>
+                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="8" id="3Gp-VW-dTo"/>
                             <constraint firstItem="zKi-OZ-CY3" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leadingMargin" constant="8" id="6Hw-4c-ZUQ"/>
                             <constraint firstAttribute="trailing" secondItem="qZh-Ag-E2h" secondAttribute="trailing" constant="8" id="8nc-xi-Doi"/>
                             <constraint firstAttribute="trailing" secondItem="VQm-X8-sIu" secondAttribute="trailing" id="CBd-4G-cxR"/>
@@ -155,7 +156,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="SMOR" id="JJI-A3-hj1"/>
                     <connections>
+                        <outlet property="address" destination="aHv-Do-frc" id="tcm-OY-DaK"/>
+                        <outlet property="address2" destination="i1z-Et-8Uh" id="jjx-F0-qe2"/>
+                        <outlet property="opening" destination="zKi-OZ-CY3" id="c3M-5A-Rx0"/>
                         <outlet property="sliderScrollView" destination="VQm-X8-sIu" id="EJu-TZ-LY3"/>
+                        <outlet property="time1" destination="qZh-Ag-E2h" id="Ee1-Ic-GPq"/>
+                        <outlet property="time2" destination="AW7-hi-NYH" id="PR8-Gq-aEL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCk-y0-Pf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,18 +440,29 @@
                                     <outlet property="delegate" destination="08x-fw-tOn" id="0Qm-J2-2H1"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6c-xv-fnx">
+                                <rect key="frame" x="26" y="470" width="323" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OZ4-Yv-AjR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H6c-xv-fnx" secondAttribute="bottom" constant="8" id="7KW-3g-byc"/>
                             <constraint firstItem="sWo-4C-hy5" firstAttribute="top" secondItem="41B-Gv-ggL" secondAttribute="bottom" constant="8" id="Gfk-Jy-3OO"/>
+                            <constraint firstItem="H6c-xv-fnx" firstAttribute="leading" secondItem="eIF-47-f5a" secondAttribute="leadingMargin" constant="10" id="Gqi-al-YUY"/>
                             <constraint firstItem="OZ4-Yv-AjR" firstAttribute="top" secondItem="sWo-4C-hy5" secondAttribute="bottom" constant="170" id="Tem-Ic-pSb"/>
                             <constraint firstAttribute="trailing" secondItem="sWo-4C-hy5" secondAttribute="trailing" id="aOZ-KQ-Q9F"/>
                             <constraint firstItem="sWo-4C-hy5" firstAttribute="leading" secondItem="eIF-47-f5a" secondAttribute="leading" id="oD9-fl-Erv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H6c-xv-fnx" secondAttribute="trailing" constant="10" id="qLg-El-VAb"/>
+                            <constraint firstItem="H6c-xv-fnx" firstAttribute="top" secondItem="sWo-4C-hy5" secondAttribute="bottom" constant="22" id="wzG-b1-Wo5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="goW-Bn-6it"/>
                     <connections>
                         <outlet property="collectionView" destination="sWo-4C-hy5" id="sAz-k8-AJQ"/>
+                        <outlet property="label" destination="H6c-xv-fnx" id="pee-rQ-XSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajK-H6-JKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
