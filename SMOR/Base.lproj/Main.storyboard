@@ -94,25 +94,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQm-X8-sIu">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="R8l-ML-88y"/>
+                                </constraints>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="aEu-PG-4WH">
-                                <rect key="frame" x="168" y="573" width="39" height="37"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aEu-PG-4WH" firstAttribute="centerX" secondItem="zvB-1Y-NtX" secondAttribute="centerX" id="P53-Ll-En2"/>
-                            <constraint firstItem="VQm-X8-sIu" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" id="VDl-Pm-aIX"/>
-                            <constraint firstItem="VQm-X8-sIu" firstAttribute="top" secondItem="LMv-JJ-q7r" secondAttribute="bottom" id="apO-fJ-byC"/>
-                            <constraint firstItem="j03-ou-hrm" firstAttribute="top" secondItem="VQm-X8-sIu" secondAttribute="bottom" id="crr-eZ-9y8"/>
-                            <constraint firstAttribute="trailing" secondItem="VQm-X8-sIu" secondAttribute="trailing" id="oES-xR-5Kz"/>
-                            <constraint firstItem="j03-ou-hrm" firstAttribute="top" secondItem="aEu-PG-4WH" secondAttribute="bottom" constant="8" symbolic="YES" id="sq2-si-Fx4"/>
+                            <constraint firstAttribute="trailing" secondItem="VQm-X8-sIu" secondAttribute="trailing" id="CBd-4G-cxR"/>
+                            <constraint firstItem="VQm-X8-sIu" firstAttribute="top" secondItem="LMv-JJ-q7r" secondAttribute="bottom" id="gYT-eP-WMC"/>
+                            <constraint firstItem="VQm-X8-sIu" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" id="niF-hx-B1V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SMOR" id="JJI-A3-hj1"/>
                     <connections>
-                        <outlet property="pageControl" destination="aEu-PG-4WH" id="1oX-9b-1M7"/>
                         <outlet property="sliderScrollView" destination="VQm-X8-sIu" id="EJu-TZ-LY3"/>
                     </connections>
                 </viewController>

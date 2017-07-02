@@ -10,6 +10,5 @@
 
 @interface SMImageSliderViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *sliderScrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end

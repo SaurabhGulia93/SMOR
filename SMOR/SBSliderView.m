@@ -26,10 +26,11 @@
     autoSrcollEnabled = isAutoScrollEnabled;
     
 //    _pageIndicator.backgroundColor = [UIColor blueColor];
-    _sliderMainScroller.backgroundColor = [UIColor yellowColor];
+//    _sliderMainScroller.backgroundColor = [UIColor yellowColor];
     _sliderMainScroller.pagingEnabled = YES;
     _sliderMainScroller.delegate = self;
     _pageIndicator.numberOfPages = [imagesArray count];
+    _pageIndicator.hidden = true;
     _sliderMainScroller.contentSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width * [imagesArray count] * 3), _sliderMainScroller.frame.size.height);
     
     int mainCount = 0;
@@ -38,13 +39,14 @@
         for (int i=0; i < [imagesArray count]; i++) {
             
             UIImageView *imageV = [[UIImageView alloc] init];
+            imageV.backgroundColor = [UIColor blueColor];
             CGRect frameRect;
             frameRect.origin.y = 0.0f;
             frameRect.size.width = [UIScreen mainScreen].bounds.size.width;
             frameRect.size.height = _sliderMainScroller.frame.size.height;
             frameRect.origin.x = (frameRect.size.width * mainCount);
             imageV.frame = frameRect;
-            imageV.contentMode = UIViewContentModeScaleAspectFill;
+            imageV.contentMode = UIViewContentModeTop;
             imageV.image = [UIImage imageNamed:(NSString *)[imagesArray objectAtIndex:i]];
             [_sliderMainScroller addSubview:imageV];
             imageV.clipsToBounds = YES;
