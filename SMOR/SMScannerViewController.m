@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"QR Scanner";
+//    self.title = @"QR Scanner";
     self.permissionButton.layer.cornerRadius = 2;
     self.permissionButton.layer.masksToBounds = YES;
     // Do any additional setup after loading the view.
@@ -188,6 +188,8 @@
 -(void)showSuccessPopup{
     
     NSInteger pointsEarned = 10;
+    NSInteger previouseSavedMeals = self.savedMeals;
+    NSInteger previousPoints = previouseSavedMeals * 10;
     
     if([_qrCodeValue containsString:QR1]){
         self.savedMeals += 1;
@@ -207,9 +209,14 @@
     if(savedPoints > 100){
         
         msg = @"You have successfully redeemed a free meal";
+        
+        if(previousPoints < 100 ){
+         
+            msg = @"You can redeem a free meal.";
+        }
     }
     
-    UIAlertController * alert=   [UIAlertController
+    UIAlertController * alert =   [UIAlertController
                                   alertControllerWithTitle:@"Congratulations"
                                   message:msg
                                   preferredStyle:UIAlertControllerStyleAlert];
@@ -222,7 +229,7 @@
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * _Nonnull action) {
                              
-                             [weakSelf updateUserDefaults];
+                             [weakSelf updateUserDefaults:previousPoints];
                              
                          }];
     
@@ -232,21 +239,15 @@
 
 }
 
--(void)updateUserDefaults{
+-(void)updateUserDefaults:(NSInteger)previousPoints{
     
     NSInteger savedPoints = self.savedMeals * 10;
     
-    if(savedPoints > 100){
+    if(savedPoints > 100 && previousPoints >= 100){
         
         // Clear UserDefaults
-        
         [self removeDataWithKey:defaultsKey];
         
-//        for (NSInteger i = 1; i <= self.savedMeals; i++) {
-//            
-//            [self removeDataWithKey:[NSString stringWithFormat:@"%ld", (long)i]];
-//        }
-
         return;
     }
 

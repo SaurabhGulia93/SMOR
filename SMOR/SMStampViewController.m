@@ -28,7 +28,7 @@
     
     self.cellCount = 10;
     
-    self.title = @"Loyalty Stamps";
+//    self.title = @"Loyalty Stamps";
     
     // register our custom Cell
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"Cell"];

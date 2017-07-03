@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Loyalty Points";
+//    self.title = @"Loyalty Points";
     self.redeemButton.backgroundColor = kBlueColor;
     [self.redeemButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
     self.redeemButton.layer.cornerRadius = 4;

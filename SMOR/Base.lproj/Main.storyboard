@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SMOR-->
+        <!--QR Scanner-->
         <scene sceneID="4iw-8d-k3c">
             <objects>
                 <viewController id="Bh6-fW-iQX" customClass="SMScannerViewController" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                             <constraint firstItem="eHX-5p-cQE" firstAttribute="width" secondItem="UGo-XQ-9Iv" secondAttribute="width" id="i9r-HK-uPg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SMOR" id="zNH-vy-LqW"/>
+                    <navigationItem key="navigationItem" title="QR Scanner" id="zNH-vy-LqW"/>
                     <connections>
                         <outlet property="captureView" destination="eHX-5p-cQE" id="TUl-v5-0WI"/>
                         <outlet property="permissionButton" destination="g9n-fV-Wbd" id="UAx-iL-1xy"/>
@@ -226,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="541.60000000000002" y="406.14692653673166"/>
         </scene>
-        <!--SMOR-->
+        <!--Loyalty Points-->
         <scene sceneID="p97-ah-5C0">
             <objects>
                 <viewController id="aIw-pp-2ck" customClass="SMRedeemFreeMealViewController" sceneMemberID="viewController">
@@ -284,7 +284,7 @@
                             <constraint firstItem="LHF-i4-1LR" firstAttribute="centerY" secondItem="RhM-z9-Hgv" secondAttribute="centerY" multiplier="0.8" id="yQN-IF-J8q"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SMOR" id="XR2-gZ-ogc"/>
+                    <navigationItem key="navigationItem" title="Loyalty Points" id="XR2-gZ-ogc"/>
                     <connections>
                         <outlet property="label" destination="R5v-J7-XSs" id="hPg-IC-EAI"/>
                         <outlet property="redeemButton" destination="GMU-cX-6k8" id="IvJ-5z-jID"/>
@@ -409,7 +409,7 @@
             </objects>
             <point key="canvasLocation" x="407" y="1846"/>
         </scene>
-        <!--Stamp View Controller-->
+        <!--Loyalty Stamps-->
         <scene sceneID="hlB-b3-L31">
             <objects>
                 <viewController id="08x-fw-tOn" customClass="SMStampViewController" sceneMemberID="viewController">
@@ -459,7 +459,7 @@
                             <constraint firstItem="H6c-xv-fnx" firstAttribute="top" secondItem="sWo-4C-hy5" secondAttribute="bottom" constant="22" id="wzG-b1-Wo5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="goW-Bn-6it"/>
+                    <navigationItem key="navigationItem" title="Loyalty Stamps" id="goW-Bn-6it"/>
                     <connections>
                         <outlet property="collectionView" destination="sWo-4C-hy5" id="sAz-k8-AJQ"/>
                         <outlet property="label" destination="H6c-xv-fnx" id="pee-rQ-XSo"/>
