@@ -13,5 +13,6 @@
 @property (nonatomic, assign) BOOL smored;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, assign) NSInteger labelTextTag;
+@property (nonatomic, strong) UIImageView *smorImageView;
 
 @end

@@ -47,7 +47,7 @@
     NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
     self.savedMeals = savedMeals ? savedMeals.integerValue : 0;
-    //    self.savedMeals = 4;
+//    self.savedMeals = 4;
     
     [self.collectionView reloadData];
     
@@ -122,9 +122,13 @@
     Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     if(indexPath.item < self.savedMeals) {
         cell.smored = true;
+        cell.label.hidden = true;
+        cell.smorImageView.hidden = false;
         cell.alpha = 1;
     }else{
         cell.smored = false;
+        cell.label.hidden = false;
+        cell.smorImageView.hidden = true;
         cell.alpha = 0.5;
     }
     cell.labelTextTag = indexPath.item + 1;

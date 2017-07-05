@@ -26,10 +26,29 @@
         self.label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.label];
         
+        self.smorImageView = [[UIImageView alloc] initWithFrame:frame];
+//        self.smorImageView.image = [UIImage imageNamed:@"smoreStamp.jpeg"];
+//        self.smorImageView.layer.cornerRadius = frame.size.width/2;
+//        self.smorImageView.layer.masksToBounds = YES;
+//        self.smorImageView.backgroundColor = [UIColor blueColor];
+        [self addSubview:self.smorImageView];
+        
+        
         self.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
-
+        self.smorImageView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
     }
     return self;
+}
+
+-(void)layoutSubviews{
+    
+    [super layoutSubviews];
+    CGRect rect = self.bounds;
+    self.smorImageView.frame = rect;
+    self.smorImageView.image = [UIImage imageNamed:@"smoreStamp.jpeg"];
+    self.smorImageView.layer.cornerRadius = rect.size.width/2;
+    self.smorImageView.layer.masksToBounds = YES;
+
 }
 
 -(void)setLabelTextTag:(NSInteger)labelTextTag{
@@ -42,11 +61,11 @@
 - (void)drawRect:(CGRect)rect
 {
     //// Color Declarations
-//    UIColor* fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
     UIColor* fillColor;
     if(self.smored){
-//        fillColor = RGB(89, 203, 232);
-        fillColor = RGB(83, 201, 233);
+//        fillColor = RGB(83, 201, 233);
+        fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
+
     }else{
         fillColor = [UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1];
     }

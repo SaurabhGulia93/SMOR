@@ -24,6 +24,7 @@
 		09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */; };
 		09D34A141EE6942B00167D63 /* gift_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D34A131EE6942B00167D63 /* gift_icon.png */; };
 		09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */; };
+		09DBC4AA1F0D0D6F00B522C4 /* smoreStamp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */; };
 		09E542481EF99C82002C9336 /* SBSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E542461EF99C82002C9336 /* SBSliderView.m */; };
 		09E542491EF99C82002C9336 /* SBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E542471EF99C82002C9336 /* SBSliderView.xib */; };
 		09FD78261F0816DB00894177 /* CircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FD78251F0816DB00894177 /* CircleLayout.m */; };
@@ -58,6 +59,7 @@
 		09D34A131EE6942B00167D63 /* gift_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift_icon.png; sourceTree = "<group>"; };
 		09D79DA71EE72E660094072A /* SMHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHistoryTableViewCell.h; sourceTree = "<group>"; };
 		09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHistoryTableViewCell.m; sourceTree = "<group>"; };
+		09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smoreStamp.jpeg; sourceTree = "<group>"; };
 		09E542451EF99C82002C9336 /* SBSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSliderView.h; sourceTree = "<group>"; };
 		09E542461EF99C82002C9336 /* SBSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSliderView.m; sourceTree = "<group>"; };
 		09E542471EF99C82002C9336 /* SBSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBSliderView.xib; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		094990251EE1D7B900FB3089 /* Assessts */ = {
 			isa = PBXGroup;
 			children = (
+				09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */,
 				09A2EFB01F0A1366004C3E92 /* launchSmor.jpeg */,
 				09D34A131EE6942B00167D63 /* gift_icon.png */,
 				09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */,
@@ -327,6 +330,7 @@
 				09A2EFB11F0A1366004C3E92 /* launchSmor.jpeg in Resources */,
 				095798931EDDF96100BB76C6 /* Main.storyboard in Resources */,
 				09660FAC1EE2D32C008B1DD5 /* sm2.jpg in Resources */,
+				09DBC4AA1F0D0D6F00B522C4 /* smoreStamp.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
