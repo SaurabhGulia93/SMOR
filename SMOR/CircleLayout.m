@@ -52,8 +52,6 @@
 
 - (CGSize)collectionViewContentSize
 {
-    
-    //vasd
     NSLog(@"CircleLayout::collectionViewContentSize:size %.1fx%.1f", size.width, size.height);
     return size;
 }
