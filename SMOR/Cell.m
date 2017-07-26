@@ -31,7 +31,7 @@
 //        self.smorImageView.layer.cornerRadius = frame.size.width/2;
 //        self.smorImageView.layer.masksToBounds = YES;
 //        self.smorImageView.backgroundColor = [UIColor blueColor];
-        [self addSubview:self.smorImageView];
+//        [self addSubview:self.smorImageView];
         
         
         self.label.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI);
@@ -45,7 +45,10 @@
     [super layoutSubviews];
     CGRect rect = self.bounds;
     self.smorImageView.frame = rect;
-    self.smorImageView.image = [UIImage imageNamed:@"smoreStamp.jpeg"];
+    UIImage *image = [UIImage imageNamed:@"smoreStamp-conervert"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.smorImageView.image = image;
+    self.smorImageView.tintColor = kBlueColor;
     self.smorImageView.layer.cornerRadius = rect.size.width/2;
     self.smorImageView.layer.masksToBounds = YES;
 

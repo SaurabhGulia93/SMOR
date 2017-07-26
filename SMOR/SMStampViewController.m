@@ -26,7 +26,7 @@
     
     [super viewDidLoad];
     
-    self.cellCount = 10;
+    self.cellCount = 12;
     
 //    self.title = @"Loyalty Stamps";
     
@@ -47,7 +47,7 @@
     NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
     self.savedMeals = savedMeals ? savedMeals.integerValue : 0;
-//    self.savedMeals = 4;
+    self.savedMeals = 4;
     
     [self.collectionView reloadData];
     

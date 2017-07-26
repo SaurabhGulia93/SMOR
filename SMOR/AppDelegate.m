@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[UINavigationBar appearance] setBarTintColor:kRedColor];
+    [[UINavigationBar appearance] setBarTintColor:RGB(83, 201, 233)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
 ;
@@ -28,7 +28,7 @@
                                                            }];
     
     [[UITabBar appearance] setTintColor:kWhiteColor];
-    [[UITabBar appearance] setBarTintColor:kRedColor];
+    [[UITabBar appearance] setBarTintColor:RGB(83, 201, 233)];
     
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
     
