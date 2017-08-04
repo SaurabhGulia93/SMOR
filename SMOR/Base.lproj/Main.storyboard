@@ -402,12 +402,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="08x-fw-tOn" kind="relationship" relationship="rootViewController" id="Esj-mK-J7O"/>
+                        <segue destination="8Wr-Fz-JfN" kind="relationship" relationship="rootViewController" id="cj0-i2-njU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx4-qD-bVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="407" y="1846"/>
+            <point key="canvasLocation" x="542" y="1872"/>
         </scene>
         <!--Loyalty Stamps-->
         <scene sceneID="hlB-b3-L31">
@@ -422,7 +422,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sWo-4C-hy5">
-                                <rect key="frame" x="0.0" y="72" width="375" height="376"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="469"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="2ah-Cn-t9N" customClass="CircleLayout"/>
                                 <cells>
@@ -441,7 +441,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6c-xv-fnx">
-                                <rect key="frame" x="26" y="470" width="323" height="20.5"/>
+                                <rect key="frame" x="26" y="519" width="323" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -468,6 +468,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajK-H6-JKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1581.5999999999999" y="1846.3268365817094"/>
+        </scene>
+        <!--New Loyaltty Stamps-->
+        <scene sceneID="m2d-p9-Dtz">
+            <objects>
+                <viewController id="8Wr-Fz-JfN" customClass="SMNewStampLayoutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FLG-nQ-eKo"/>
+                        <viewControllerLayoutGuide type="bottom" id="8gb-js-s8N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o3a-07-c2R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Loyaltty Stamps" id="knB-ql-ATh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iyB-YA-Xq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="2619"/>
         </scene>
     </scenes>
     <resources>

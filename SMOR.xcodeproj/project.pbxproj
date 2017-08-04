@@ -22,6 +22,7 @@
 		09660FAD1EE2D32C008B1DD5 /* sm3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FAA1EE2D32C008B1DD5 /* sm3.jpg */; };
 		09A2EFB11F0A1366004C3E92 /* launchSmor.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09A2EFB01F0A1366004C3E92 /* launchSmor.jpeg */; };
 		09BA84321EE3F54900BE63AC /* smore1080x1980.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */; };
+		09BD26C41F3478BB00867FEB /* SMNewStampLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD26C31F3478BB00867FEB /* SMNewStampLayoutViewController.m */; };
 		09D34A141EE6942B00167D63 /* gift_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D34A131EE6942B00167D63 /* gift_icon.png */; };
 		09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */; };
 		09DBC4AA1F0D0D6F00B522C4 /* smoreStamp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */; };
@@ -56,6 +57,8 @@
 		09660FAA1EE2D32C008B1DD5 /* sm3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm3.jpg; sourceTree = "<group>"; };
 		09A2EFB01F0A1366004C3E92 /* launchSmor.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchSmor.jpeg; sourceTree = "<group>"; };
 		09BA84311EE3F54900BE63AC /* smore1080x1980.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smore1080x1980.jpeg; sourceTree = "<group>"; };
+		09BD26C21F3478BB00867FEB /* SMNewStampLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNewStampLayoutViewController.h; sourceTree = "<group>"; };
+		09BD26C31F3478BB00867FEB /* SMNewStampLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNewStampLayoutViewController.m; sourceTree = "<group>"; };
 		09D34A131EE6942B00167D63 /* gift_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gift_icon.png; sourceTree = "<group>"; };
 		09D79DA71EE72E660094072A /* SMHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHistoryTableViewCell.h; sourceTree = "<group>"; };
 		09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHistoryTableViewCell.m; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		0909826A1EDF32B70034C05F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				09BD26C11F34789100867FEB /* NewStampLayout */,
 				09FD77EC1F0815D100894177 /* Stamp collection View Controller */,
 				09D79DA31EE72DFB0094072A /* TableView Cell */,
 				090982771EDF34030034C05F /* History */,
@@ -203,6 +207,15 @@
 				095798891EDDF96100BB76C6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		09BD26C11F34789100867FEB /* NewStampLayout */ = {
+			isa = PBXGroup;
+			children = (
+				09BD26C21F3478BB00867FEB /* SMNewStampLayoutViewController.h */,
+				09BD26C31F3478BB00867FEB /* SMNewStampLayoutViewController.m */,
+			);
+			name = NewStampLayout;
 			sourceTree = "<group>";
 		};
 		09D79DA31EE72DFB0094072A /* TableView Cell */ = {
@@ -347,6 +360,7 @@
 				09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */,
 				09E542481EF99C82002C9336 /* SBSliderView.m in Sources */,
 				09FD782B1F08170A00894177 /* Cell.m in Sources */,
+				09BD26C41F3478BB00867FEB /* SMNewStampLayoutViewController.m in Sources */,
 				09FD782F1F08197B00894177 /* SMStampViewController.m in Sources */,
 				09FD78261F0816DB00894177 /* CircleLayout.m in Sources */,
 				0909827A1EDF341D0034C05F /* SMHistoryViewController.m in Sources */,
