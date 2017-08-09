@@ -99,59 +99,84 @@
                                     <constraint firstAttribute="height" constant="300" id="R8l-ML-88y"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-OZ-CY3">
-                                <rect key="frame" x="24" y="374" width="327" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-Ag-E2h">
-                                <rect key="frame" x="8" y="406" width="359" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday : 10:30 AM to 6:30 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW7-hi-NYH">
-                                <rect key="frame" x="8" y="435" width="359" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Do-frc">
-                                <rect key="frame" x="24" y="478" width="327" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Raffles place, #B1–23, Singapore 048616. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-Et-8Uh">
-                                <rect key="frame" x="8" y="512" width="359" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oec-ed-ltV">
+                                <rect key="frame" x="0.0" y="364" width="375" height="254"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvQ-ps-T7W" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-OZ-CY3">
+                                                <rect key="frame" x="24" y="0.0" width="327" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-Ag-E2h">
+                                                <rect key="frame" x="8" y="30" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday : 10:30 AM to 6:30 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW7-hi-NYH">
+                                                <rect key="frame" x="8" y="58" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Do-frc">
+                                                <rect key="frame" x="24" y="106" width="327" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Raffles place, #B1–23, Singapore 048616. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-Et-8Uh">
+                                                <rect key="frame" x="8" y="138" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="AW7-hi-NYH" secondAttribute="trailing" constant="8" id="43x-mn-bGf"/>
+                                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="5VP-S5-yEo"/>
+                                            <constraint firstItem="zKi-OZ-CY3" firstAttribute="top" secondItem="ZvQ-ps-T7W" secondAttribute="top" id="6Q8-NJ-VTs"/>
+                                            <constraint firstItem="AW7-hi-NYH" firstAttribute="top" secondItem="qZh-Ag-E2h" secondAttribute="bottom" constant="7" id="9Zl-bM-pQS"/>
+                                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="6" id="9ul-Km-RS6"/>
+                                            <constraint firstItem="AW7-hi-NYH" firstAttribute="top" secondItem="qZh-Ag-E2h" secondAttribute="bottom" constant="7" id="E3S-Mc-hTU"/>
+                                            <constraint firstAttribute="trailing" secondItem="i1z-Et-8Uh" secondAttribute="trailing" constant="8" id="OeI-xH-wMT"/>
+                                            <constraint firstItem="zKi-OZ-CY3" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="Q5S-kX-1vj"/>
+                                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="top" secondItem="aHv-Do-frc" secondAttribute="bottom" constant="8" id="RyG-2n-tQs"/>
+                                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="6" id="Tzb-pc-2j0"/>
+                                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="UlK-6U-piE"/>
+                                            <constraint firstAttribute="trailing" secondItem="qZh-Ag-E2h" secondAttribute="trailing" constant="8" id="XrD-LL-ed3"/>
+                                            <constraint firstItem="AW7-hi-NYH" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="c1K-uk-qkU"/>
+                                            <constraint firstAttribute="trailing" secondItem="aHv-Do-frc" secondAttribute="trailing" constant="24" id="cKZ-hB-0CB"/>
+                                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="top" secondItem="aHv-Do-frc" secondAttribute="bottom" constant="8" id="joA-vY-XWD"/>
+                                            <constraint firstItem="aHv-Do-frc" firstAttribute="top" secondItem="AW7-hi-NYH" secondAttribute="bottom" constant="27" id="jrL-ly-jra"/>
+                                            <constraint firstItem="aHv-Do-frc" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="kPC-N0-pYw"/>
+                                            <constraint firstAttribute="trailing" secondItem="zKi-OZ-CY3" secondAttribute="trailing" constant="24" id="qG8-QY-yeX"/>
+                                            <constraint firstAttribute="bottom" secondItem="i1z-Et-8Uh" secondAttribute="bottom" constant="15.5" id="y34-pU-awR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZvQ-ps-T7W" firstAttribute="top" secondItem="oec-ed-ltV" secondAttribute="top" id="27q-Mj-8Fu"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZvQ-ps-T7W" secondAttribute="bottom" id="5YG-zU-NbW"/>
+                                    <constraint firstItem="ZvQ-ps-T7W" firstAttribute="leading" secondItem="oec-ed-ltV" secondAttribute="leading" id="WXz-8I-Xit"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZvQ-ps-T7W" secondAttribute="trailing" id="Zcd-3B-oRD"/>
+                                    <constraint firstItem="ZvQ-ps-T7W" firstAttribute="width" secondItem="oec-ed-ltV" secondAttribute="width" id="ol7-XK-eJ4"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="aHv-Do-frc" secondAttribute="trailing" constant="8" id="0fL-EC-Bjq"/>
-                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" relation="lessThanOrEqual" secondItem="zKi-OZ-CY3" secondAttribute="bottom" priority="999" constant="5" id="0g8-UA-Nwz"/>
-                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="8" id="3Gp-VW-dTo"/>
-                            <constraint firstItem="zKi-OZ-CY3" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leadingMargin" constant="8" id="6Hw-4c-ZUQ"/>
-                            <constraint firstAttribute="trailing" secondItem="qZh-Ag-E2h" secondAttribute="trailing" constant="8" id="8nc-xi-Doi"/>
                             <constraint firstAttribute="trailing" secondItem="VQm-X8-sIu" secondAttribute="trailing" id="CBd-4G-cxR"/>
-                            <constraint firstItem="aHv-Do-frc" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leadingMargin" constant="8" id="CmR-fo-zcb"/>
-                            <constraint firstItem="j03-ou-hrm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i1z-Et-8Uh" secondAttribute="bottom" constant="8" id="IkS-Wq-QZ0"/>
-                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" constant="8" id="N8S-0f-ajS"/>
-                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="top" secondItem="aHv-Do-frc" secondAttribute="bottom" constant="10" id="Onf-kl-v35"/>
-                            <constraint firstAttribute="trailing" secondItem="i1z-Et-8Uh" secondAttribute="trailing" constant="8" id="VRl-pu-7y0"/>
-                            <constraint firstItem="AW7-hi-NYH" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" constant="8" id="ZZn-dE-7aj"/>
-                            <constraint firstItem="zKi-OZ-CY3" firstAttribute="top" secondItem="VQm-X8-sIu" secondAttribute="bottom" constant="10" id="Ztt-h0-Czt"/>
-                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" constant="8" id="anG-TA-OY6"/>
-                            <constraint firstItem="aHv-Do-frc" firstAttribute="top" secondItem="AW7-hi-NYH" secondAttribute="bottom" constant="22" id="fdB-st-qg3"/>
+                            <constraint firstItem="oec-ed-ltV" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" id="YwQ-pb-ML1"/>
+                            <constraint firstItem="j03-ou-hrm" firstAttribute="top" secondItem="oec-ed-ltV" secondAttribute="bottom" id="bCU-wF-Dxe"/>
                             <constraint firstItem="VQm-X8-sIu" firstAttribute="top" secondItem="LMv-JJ-q7r" secondAttribute="bottom" id="gYT-eP-WMC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zKi-OZ-CY3" secondAttribute="trailing" constant="8" id="hvA-ZT-jhc"/>
+                            <constraint firstAttribute="trailing" secondItem="oec-ed-ltV" secondAttribute="trailing" id="kwI-S2-8Ip"/>
                             <constraint firstItem="VQm-X8-sIu" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" id="niF-hx-B1V"/>
-                            <constraint firstAttribute="trailing" secondItem="AW7-hi-NYH" secondAttribute="trailing" constant="8" id="oLn-ZL-vmd"/>
-                            <constraint firstItem="AW7-hi-NYH" firstAttribute="top" secondItem="qZh-Ag-E2h" secondAttribute="bottom" constant="8" id="vEY-BI-bJR"/>
+                            <constraint firstItem="oec-ed-ltV" firstAttribute="top" secondItem="VQm-X8-sIu" secondAttribute="bottom" id="sBF-mJ-N2T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SMOR" id="JJI-A3-hj1"/>
@@ -166,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCk-y0-Pf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="-399.85007496251876"/>
+            <point key="canvasLocation" x="1564" y="-417.8410794602699"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uaH-Sm-hEf">
