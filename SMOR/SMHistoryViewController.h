@@ -10,5 +10,6 @@
 
 @interface SMHistoryViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)segmentControlTapped:(UISegmentedControl *)sender;
 
 @end

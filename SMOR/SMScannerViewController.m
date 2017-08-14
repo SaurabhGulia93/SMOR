@@ -14,6 +14,8 @@
 #define QR3 @"35.70"
 
 #define defaultsKey @"SMORDATA"
+#define paidMeals @"PAIDMEALS"
+#define redeemedMeals @"REDEEMEDMEALS"
 
 @interface SMScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
@@ -39,18 +41,33 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.shouldStopScan = false;
     [self.permissionView setHidden:true];
-    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
-    NSInteger savedMealsValue = savedMeals ? savedMeals.integerValue : 0;
+    NSInteger savedMealsValue = 0;
+    NSArray *savedPaidMeals = [self getDataForKey:paidMeals];
+    
+//    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
+    
+    if(savedPaidMeals){
+        for(NSDictionary *dict in savedPaidMeals){
+            NSNumber *equivalentMeals = [dict objectForKey:@"equivalentMeals"];
+            if(equivalentMeals){
+                savedMealsValue += equivalentMeals.integerValue;
+            }
+        }
+    }else{
+        savedMealsValue = 0;
+    }
+    
+    
     
     self.savedMeals = savedMealsValue;
 
 }
 
--(NSNumber *)getDataForKey:(NSString *)key{
+-(id)getDataForKey:(NSString *)key{
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSNumber *data = [prefs objectForKey:key];
+    id data = [prefs objectForKey:key];
     return data;
 }
 
@@ -202,19 +219,21 @@
         pointsEarned = 30;
     }
     
-    NSInteger savedPoints = self.savedMeals * 10;
+//    NSInteger savedPoints = self.savedMeals * 10;
+//    
+//    NSString *msg = savedPoints == 100 ? @"You can redeem a free meal." : [NSString stringWithFormat:@"You have successfully earned %ld loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.", (long)pointsEarned];
+//    
+//    if(savedPoints > 100){
+//        
+//        msg = @"You have successfully redeemed a free meal";
+//        
+//        if(previousPoints < 100 ){
+//         
+//            msg = @"You can redeem a free meal.";
+//        }
+//    }
     
-    NSString *msg = savedPoints == 100 ? @"You can redeem a free meal." : [NSString stringWithFormat:@"You have successfully earned %ld loyalty points. You can redeem a free meal after successfully earning 100 loyalty points.", (long)pointsEarned];
-    
-    if(savedPoints > 100){
-        
-        msg = @"You have successfully redeemed a free meal";
-        
-        if(previousPoints < 100 ){
-         
-            msg = @"You can redeem a free meal.";
-        }
-    }
+    NSString *msg = [NSString stringWithFormat:@"You have successfully earned %ld loyalty points.", (long)pointsEarned];
     
     UIAlertController * alert =   [UIAlertController
                                   alertControllerWithTitle:@"Congratulations"
@@ -241,31 +260,53 @@
 
 -(void)updateUserDefaults:(NSInteger)previousPoints{
     
-    NSInteger savedPoints = self.savedMeals * 10;
-    
-    if(savedPoints > 100 && previousPoints >= 100){
-        
-        // Clear UserDefaults
-        [self removeDataWithKey:defaultsKey];
-        
-        return;
-    }
+//    NSInteger savedPoints = self.savedMeals * 10;
+//    
+//    if(savedPoints > 100 && previousPoints >= 100){
+//        
+//        // Clear UserDefaults
+//        [self removeDataWithKey:defaultsKey];
+//        
+//        return;
+//    }
 
     
-//    NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
-//    
-//    NSDate *date = [NSDate date];
-//    
-//    [mutDict setObject:date forKey:@"date"];
-//    
-//    if(self.qrCodeValue){
-//        
-//        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
-//    }
-//    
+    NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
+    
+    NSDate *date = [NSDate date];
+    
+    [mutDict setObject:date forKey:@"date"];
+    
+    if(self.qrCodeValue){
+        
+        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
+        
+        NSInteger equivalentMeals = 1;
+        if([_qrCodeValue containsString:QR1]){
+            equivalentMeals = 1;
+        }else if ([_qrCodeValue containsString:QR2]){
+            equivalentMeals = 2;
+        }else if ([_qrCodeValue containsString:QR3]){
+            equivalentMeals = 3;
+        }
+        [mutDict setObject:[NSNumber numberWithInteger:equivalentMeals] forKey:@"equivalentMeals"];
+    }
+
+    NSArray *savedPaidMeals = [self getDataForKey:paidMeals];
+    
+    NSMutableArray *mutArr = nil;
+    if(savedPaidMeals){
+        mutArr = [[NSMutableArray alloc] initWithArray:savedPaidMeals];
+    }else{
+        mutArr = [[NSMutableArray alloc] init];
+    }
+    [mutArr addObject:[NSDictionary dictionaryWithDictionary:mutDict]];
+    
+    [self saveData:[NSArray arrayWithArray:mutArr] withKey:paidMeals];
+    
 //    [self saveData:mutDict withKey:[NSString stringWithFormat:@"%ld",(long)self.savedMeals]];
     
-    [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
+//    [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
     
     self.tabBarController.selectedIndex = 3;
 }

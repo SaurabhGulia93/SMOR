@@ -142,48 +142,44 @@
         }
 }
 
--(void)makeStampCard{
-    
-    float topPAdding = 40;
-    float bottomPAdding = 100;
-    float sidePAdding = 40;
-    
-    NSLog(@"%f",self.tabBarController.tabBar.bounds.size.height);
-    
-    
-    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - (self.view.bounds.size.width - 2 * sidePAdding))/2, topPAdding, (self.view.bounds.size.width - 2 * sidePAdding), (self.view.bounds.size.height - (topPAdding + bottomPAdding) - self.tabBarController.tabBar.bounds.size.height))];
-    containerView.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:containerView];
-    
-    float containerCenterX = containerView.center.x;
-    float containerCenterY = containerView.center.y;
-    
-    int width,height;
-    float angle;
-    int r = 200;
-//    int j = 0;
+//-(void)makeStampCard{
+//    
+//    float topPAdding = 40;
+//    float bottomPAdding = 100;
+//    float sidePAdding = 40;
+//    
+//    NSLog(@"%f",self.tabBarController.tabBar.bounds.size.height);
+//    
+//    
+//    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - (self.view.bounds.size.width - 2 * sidePAdding))/2, topPAdding, (self.view.bounds.size.width - 2 * sidePAdding), (self.view.bounds.size.height - (topPAdding + bottomPAdding) - self.tabBarController.tabBar.bounds.size.height))];
+//    containerView.backgroundColor = [UIColor yellowColor];
+//    [self.view addSubview:containerView];
+//    
+//    float containerCenterX = containerView.center.x;
+//    float containerCenterY = containerView.center.y;
+//    
+//    int width,height;
+//    float angle;
+//    int r = 200;
+////    int j = 0;
+//
+//    angle = 0;
+//    width = 55;
+//    height = 55;
+//    
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [button addTarget:self action:@selector(buttonTApped) forControlEvents:UIControlEventTouchUpInside];
+//    button.backgroundColor = [UIColor blueColor];
+//    button.frame = CGRectMake(0, 0, width, height);
+//    [containerView addSubview:button];
+//    
+//    float buttonCenterX =  r * cos(angle);
+//    float buttonCenterY =  r * sin(angle);
+//    
+//    [button setCenter:CGPointMake(buttonCenterX, buttonCenterY)];
+//    
+//}
 
-    angle = 0;
-    width = 55;
-    height = 55;
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button addTarget:self action:@selector(buttonTApped) forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor blueColor];
-    button.frame = CGRectMake(0, 0, width, height);
-    [containerView addSubview:button];
-    
-    float buttonCenterX =  r * cos(angle);
-    float buttonCenterY =  r * sin(angle);
-    
-    [button setCenter:CGPointMake(buttonCenterX, buttonCenterY)];
-    
-}
-
--(void)buttonTApped{
-    
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

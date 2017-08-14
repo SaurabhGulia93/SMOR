@@ -11,13 +11,16 @@
 #import "MLStyle.h"
 
 #define defaultsKey @"SMORDATA"
+#define paidMeals @"PAIDMEALS"
+#define redeemedMeals @"REDEEMEDMEALS"
 #define paymentHistoryTimeFormat @"dd-MMM-yyyy 'at' HH:mm"
 
 @interface SMHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSDateFormatter *paymentHistoryDateFormatter;
-
+@property (nonatomic, strong) UISegmentedControl *segmentControl;
+@property (nonatomic, assign) NSInteger selectedSegmentIndex;
 
 @end
 
@@ -28,7 +31,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    self.selectedSegmentIndex = 0;
     // Do any additional setup after loading the view.
 }
 
@@ -43,28 +46,45 @@
     [self.paymentHistoryDateFormatter setDateFormat:paymentHistoryTimeFormat];
     [self.paymentHistoryDateFormatter setLocale:posixLocale];
 
-    
-    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
-    
-    NSInteger savedMealsValue = savedMeals ? savedMeals.integerValue : 0;
-
-    [self createDataSource:savedMealsValue];
+    [self createDataSourceForPaidMeals];
     
 }
 
--(void) createDataSource:(NSInteger)savedMeals{
+-(void)createDataSourceForPaidMeals{
     
     NSMutableArray *mutArr = [[NSMutableArray alloc] init];
     
-    for (NSInteger i = 1; i <= savedMeals; i++) {
-        
-        NSDictionary *dict = [self getDataForKey:[NSString stringWithFormat:@"%ld",(long)i]];
-        NSDate *date = [dict objectForKey:@"date"];
-        NSString *price = [dict objectForKey:@"qrValue"];
-        
-        NSAttributedString *labelStr = [self attrTextWithPrice:[price containsString:@"$"] ? [NSString stringWithFormat:@"%@", price] : [NSString stringWithFormat:@"$%@", price] dateStr:[self.paymentHistoryDateFormatter stringFromDate:date]];
-        
-        [mutArr addObject:labelStr];
+    NSArray *savedPaidMeals = [self getDataForKey:paidMeals];
+    
+    if(savedPaidMeals){
+        for(NSDictionary *dict in savedPaidMeals){
+            NSDate *date = [dict objectForKey:@"date"];
+            NSString *price = [dict objectForKey:@"qrValue"];
+            NSAttributedString *labelStr = [self attrTextWithPrice:[price containsString:@"$"] ? [NSString stringWithFormat:@"%@", price] : [NSString stringWithFormat:@"$%@", price] dateStr:[self.paymentHistoryDateFormatter stringFromDate:date]];
+            
+            [mutArr addObject:labelStr];
+        }
+    }
+    
+    self.dataSource = [NSArray arrayWithArray:mutArr];
+    
+    [self.tableView reloadData];
+}
+
+-(void)createDataSourceForRedeemedMeals{
+    
+    NSMutableArray *mutArr = [[NSMutableArray alloc] init];
+    
+    NSArray *savedRedeemedMeals = [self getDataForKey:redeemedMeals];
+    
+    if(savedRedeemedMeals){
+        for(NSDictionary *dict in savedRedeemedMeals){
+            NSDate *date = [dict objectForKey:@"date"];
+            NSString *price = [dict objectForKey:@"qrValue"];
+            NSAttributedString *labelStr = [self attrTextForRedeemedMealsWithPrice:[price containsString:@"$"] ? [NSString stringWithFormat:@"%@", price] : [NSString stringWithFormat:@"$%@", price] dateStr:[self.paymentHistoryDateFormatter stringFromDate:date]];
+            
+            [mutArr addObject:labelStr];
+        }
     }
     
     self.dataSource = [NSArray arrayWithArray:mutArr];
@@ -99,6 +119,11 @@
     }
     
     cell.historyLabel.attributedText = [self.dataSource objectAtIndex:indexPath.row];
+    cell.smoredImage.hidden = NO;
+    
+    if(self.selectedSegmentIndex == 1){
+        cell.smoredImage.hidden = YES;
+    }
     
     return cell;
 }
@@ -141,7 +166,53 @@
     return [[NSAttributedString alloc] initWithAttributedString:attStr];
 }
 
+- (NSAttributedString *)attrTextForRedeemedMealsWithPrice:(NSString *)price dateStr:(NSString *)dateStr
+{
+    
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] init];
+    
+    NSMutableParagraphStyle *mainStyle = [[NSMutableParagraphStyle alloc] init];
+    mainStyle.alignment = NSTextAlignmentLeft;
+    mainStyle.paragraphSpacing = 4;
+    
+    //    NSDictionary *headerTitleDict3 = @{NSFontAttributeName : REGULAR(17),
+    //                                       NSForegroundColorAttributeName : kDarkerGrayFontColor,
+    //                                       NSParagraphStyleAttributeName : mainStyle
+    //                                       };
+    
+    NSDictionary *headerTitleDict2 = @{NSFontAttributeName : REGULAR(17),
+                                       NSForegroundColorAttributeName : kBlackFontColor,
+                                       NSParagraphStyleAttributeName : mainStyle
+                                       };
+    
+    NSDictionary *headerTitleDict1 = @{NSFontAttributeName : REGULAR(12),
+                                       NSForegroundColorAttributeName : kLightGrayColor,
+                                       NSParagraphStyleAttributeName : mainStyle
+                                       };
+    
+    
+    NSAttributedString *headerAttr1 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", @"Redeemed Meal: "] attributes:headerTitleDict2];
+    [attStr appendAttributedString:headerAttr1];
+    
+    NSAttributedString *headerAttr2 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",price] attributes:headerTitleDict2];
+    [attStr appendAttributedString:headerAttr2];
+    
+    NSAttributedString *headerAttr3 = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", dateStr] attributes:headerTitleDict1];
+    [attStr appendAttributedString:headerAttr3];
+    
+    
+    return [[NSAttributedString alloc] initWithAttributedString:attStr];
+}
 
 
+- (IBAction)segmentControlTapped:(UISegmentedControl *)sender {
+
+    self.selectedSegmentIndex = sender.selectedSegmentIndex;
+    if(sender.selectedSegmentIndex == 0){
+        [self createDataSourceForPaidMeals];
+    }else if (sender.selectedSegmentIndex == 1){
+        [self createDataSourceForRedeemedMeals];
+    }
+}
 
 @end

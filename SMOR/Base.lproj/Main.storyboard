@@ -319,7 +319,7 @@
             </objects>
             <point key="canvasLocation" x="2489" y="937"/>
         </scene>
-        <!--SMOR-->
+        <!--History View Controller-->
         <scene sceneID="zrJ-MX-VyD">
             <objects>
                 <viewController id="IAw-wX-dfC" customClass="SMHistoryViewController" sceneMemberID="viewController">
@@ -387,14 +387,27 @@
                             <constraint firstItem="rwK-BY-3IK" firstAttribute="top" secondItem="5zV-be-hvz" secondAttribute="bottom" id="YP2-ei-PCB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SMOR" id="pr3-AG-5hJ"/>
+                    <navigationItem key="navigationItem" id="pr3-AG-5hJ">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="95C-4u-8jG">
+                            <rect key="frame" x="72" y="7" width="231" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Paid Meals"/>
+                                <segment title="RedeemedMeals"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentControlTapped:" destination="IAw-wX-dfC" eventType="valueChanged" id="rHn-GJ-02m"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rwK-BY-3IK" id="gWn-3Y-Fuh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZd-kl-SYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="1892"/>
+            <point key="canvasLocation" x="1622" y="1898"/>
         </scene>
         <!--Redeem-->
         <scene sceneID="Rc6-BN-k1S">
@@ -492,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajK-H6-JKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2489" y="1884"/>
+            <point key="canvasLocation" x="2562" y="1898"/>
         </scene>
         <!--Loyalty Stamps-->
         <scene sceneID="m2d-p9-Dtz">
@@ -511,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyB-YA-Xq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="1153"/>
+            <point key="canvasLocation" x="1623" y="1161"/>
         </scene>
     </scenes>
     <resources>
