@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIView *permissionView;
 @property (weak, nonatomic) IBOutlet UIButton *permissionButton;
 - (IBAction)grantPermission:(UIButton *)sender;
-
+@property (nonatomic, assign) BOOL redeem6Off;
+@property (nonatomic, assign) BOOL redeem12Off;
 @end

@@ -13,9 +13,14 @@
 #define QR2 @"23.80"
 #define QR3 @"35.70"
 
+#define QR4 @"6"
+#define QR5 @"12"
+
+
 #define defaultsKey @"SMORDATA"
 #define paidMeals @"PAIDMEALS"
 #define redeemedMeals @"REDEEMEDMEALS"
+#define earnedStamps @"EARNEDSTAMPS"
 
 @interface SMScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
@@ -35,6 +40,9 @@
 //    self.title = @"QR Scanner";
     self.permissionButton.layer.cornerRadius = 2;
     self.permissionButton.layer.masksToBounds = YES;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redeemMeals:) name:@"redeemNotification" object:nil];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -42,26 +50,47 @@
     self.shouldStopScan = false;
     [self.permissionView setHidden:true];
     
-    NSInteger savedMealsValue = 0;
-    NSArray *savedPaidMeals = [self getDataForKey:paidMeals];
+//    NSInteger savedMealsValue = 0;
+//    NSArray *savedPaidMeals = [self getDataForKey:paidMeals];
     
 //    NSNumber *savedMeals = [self getDataForKey:defaultsKey];
     
-    if(savedPaidMeals){
-        for(NSDictionary *dict in savedPaidMeals){
-            NSNumber *equivalentMeals = [dict objectForKey:@"equivalentMeals"];
-            if(equivalentMeals){
-                savedMealsValue += equivalentMeals.integerValue;
-            }
-        }
-    }else{
-        savedMealsValue = 0;
-    }
+//    if(savedPaidMeals){
+//        for(NSDictionary *dict in savedPaidMeals){
+//            NSNumber *equivalentMeals = [dict objectForKey:@"equivalentMeals"];
+//            if(equivalentMeals){
+//                savedMealsValue += equivalentMeals.integerValue;
+//            }
+//        }
+//    }else{
+//        savedMealsValue = 0;
+//    }
     
+    NSArray *savedStamps = [self getDataForKey:earnedStamps];
     
-    
-    self.savedMeals = savedMealsValue;
+    self.savedMeals = savedStamps.count;
 
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    self.redeem12Off = false;
+    self.redeem6Off = false;
+}
+
+-(void)redeemMeals:(NSNotification *)notification{
+    
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *redeemVal = [userInfo objectForKey:@"redeem"];
+    if(redeemVal){
+        
+        if(redeemVal.intValue == 6){
+            self.redeem6Off = true;
+        }else if(redeemVal.intValue == 12){
+            self.redeem12Off = true;
+        }
+    }
 }
 
 -(id)getDataForKey:(NSString *)key{
@@ -189,17 +218,73 @@
             
             NSString *qrCodeValue = [metadataObj stringValue];
             
-            if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
+            if([qrCodeValue containsString:QR2] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
                     [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
+            }else if ((_redeem6Off || _redeem12Off) && ([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR1])){
+                
+                self.qrCodeValue = qrCodeValue;
+                if(!_shouldStopScan){
+                    [self performSelectorOnMainThread:@selector(redeemSuccessFull) withObject:nil waitUntilDone:NO];
+                    _shouldStopScan = true;
+                }
             }
             
         }
     }
+}
+
+-(void)redeemSuccessFull{
+    
+    if(self.redeem6Off){
+        
+        NSArray *savedPaidMeals = [self getDataForKey:earnedStamps];
+        
+        NSMutableArray *mutArr = [NSMutableArray arrayWithArray:savedPaidMeals];
+        
+        [mutArr removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]];
+        
+        [self saveData:[NSArray arrayWithArray:mutArr] withKey:earnedStamps];
+        
+        
+    }else if (self.redeem12Off){
+        
+        [self removeDataWithKey:earnedStamps];
+        
+        [self removeDataWithKey:paidMeals];
+
+    }
+    
+    if(_redeem12Off || _redeem6Off){
+        
+        NSString *msg = [NSString stringWithFormat:@"You have successfully redeemed an offer"];
+        
+        UIAlertController * alert =   [UIAlertController
+                                       alertControllerWithTitle:@"Congratulations"
+                                       message:msg
+                                       preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        __weak typeof(self) weakSelf = self;
+        
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"Ok"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * _Nonnull action) {
+                                 
+                                 [weakSelf updateUserDefaultsOnRedeem];
+                                 
+                             }];
+        
+        [alert addAction:ok];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+
 }
 
 -(void)showSuccessPopup{
@@ -233,6 +318,11 @@
 //        }
 //    }
     
+    if(previousPoints >= 100){
+        
+        [self updateUserDefaults:previousPoints];
+    }
+    
     NSString *msg = [NSString stringWithFormat:@"You have successfully earned %ld loyalty points.", (long)pointsEarned];
     
     UIAlertController * alert =   [UIAlertController
@@ -258,6 +348,34 @@
 
 }
 
+-(void)updateUserDefaultsOnRedeem{
+    
+    NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
+    
+    NSDate *date = [NSDate date];
+    
+    [mutDict setObject:date forKey:@"date"];
+    
+    if(self.qrCodeValue){
+        
+        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
+        
+    }
+    
+    NSArray *savedRedeemedMeals = [self getDataForKey:redeemedMeals];
+    
+    NSMutableArray *mutArr = nil;
+    if(savedRedeemedMeals){
+        mutArr = [[NSMutableArray alloc] initWithArray:savedRedeemedMeals];
+    }else{
+        mutArr = [[NSMutableArray alloc] init];
+    }
+    [mutArr addObject:[NSDictionary dictionaryWithDictionary:mutDict]];
+    
+    [self saveData:[NSArray arrayWithArray:mutArr] withKey:redeemedMeals];
+
+}
+
 -(void)updateUserDefaults:(NSInteger)previousPoints{
     
 //    NSInteger savedPoints = self.savedMeals * 10;
@@ -269,6 +387,34 @@
 //        
 //        return;
 //    }
+    
+    
+    if(previousPoints >= 100){
+        
+        NSString *msg = [NSString stringWithFormat:@"You already have 10 stamps. Please redeem a free meal"];
+        
+        UIAlertController * alert =   [UIAlertController
+                                       alertControllerWithTitle:@"Oops!"
+                                       message:msg
+                                       preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        __weak typeof(self) weakSelf = self;
+        
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"Ok"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * _Nonnull action) {
+                                 
+                                 weakSelf.tabBarController.selectedIndex = 2;
+
+                                 
+                             }];
+        
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
 
     
     NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];
@@ -290,7 +436,27 @@
             equivalentMeals = 3;
         }
         [mutDict setObject:[NSNumber numberWithInteger:equivalentMeals] forKey:@"equivalentMeals"];
+        
+        
+        
+        // Save earned Stamps
+        NSArray *savedStamps = [self getDataForKey:earnedStamps];
+        
+        NSMutableArray *mutArr = nil;
+        if(savedStamps){
+            mutArr = [[NSMutableArray alloc] initWithArray:savedStamps];
+        }else{
+            mutArr = [[NSMutableArray alloc] init];
+        }
+        
+        for(NSInteger i = 0; i < equivalentMeals; i++){
+            
+            [mutArr addObject:@"eranedStamp"];
+    
+        }
+        [self saveData:[NSArray arrayWithArray:mutArr] withKey:earnedStamps];
     }
+    
 
     NSArray *savedPaidMeals = [self getDataForKey:paidMeals];
     
@@ -308,7 +474,7 @@
     
 //    [self saveData:[NSNumber numberWithInteger:self.savedMeals] withKey:[NSString stringWithFormat:@"%@",defaultsKey]];
     
-    self.tabBarController.selectedIndex = 3;
+    self.tabBarController.selectedIndex = 2;
 }
 
 - (IBAction)grantPermission:(UIButton *)sender {

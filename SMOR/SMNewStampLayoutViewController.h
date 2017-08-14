@@ -10,4 +10,6 @@
 
 @interface SMNewStampLayoutViewController : UIViewController
 
+@property (nonatomic, strong) UILabel *noteLabel;
+
 @end

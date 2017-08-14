@@ -389,12 +389,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="pr3-AG-5hJ">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="95C-4u-8jG">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="95C-4u-8jG">
                             <rect key="frame" x="72" y="7" width="231" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Paid Meals"/>
-                                <segment title="RedeemedMeals"/>
+                                <segment title="Redeemed Meals"/>
                             </segments>
                             <connections>
                                 <action selector="segmentControlTapped:" destination="IAw-wX-dfC" eventType="valueChanged" id="rHn-GJ-02m"/>
