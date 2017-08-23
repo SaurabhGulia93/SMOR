@@ -218,14 +218,14 @@
             
             NSString *qrCodeValue = [metadataObj stringValue];
             
-            if([qrCodeValue containsString:QR2] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
+            if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
                     [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
-            }else if ((_redeem6Off || _redeem12Off) && ([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR1])){
+            }else if ((_redeem6Off || _redeem12Off) && ([qrCodeValue containsString:QR4] || [qrCodeValue containsString:QR5])){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){

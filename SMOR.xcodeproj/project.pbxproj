@@ -505,7 +505,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gronical.SMOR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1cf197c6-a57d-4c94-910f-0d34239b0cbb";
+				PROVISIONING_PROFILE = "2dcd469e-9352-4ff1-95ac-3bac08a753c7";
 				PROVISIONING_PROFILE_SPECIFIER = "SMOR AdHoc Distribution Provisioning Profile";
 			};
 			name = Release;
