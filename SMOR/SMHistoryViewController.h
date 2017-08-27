@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SMHistoryViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)segmentControlTapped:(UISegmentedControl *)sender;
 

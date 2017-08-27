@@ -15,11 +15,15 @@
 #define paidMeals @"PAIDMEALS"
 #define redeemedMeals @"REDEEMEDMEALS"
 #define earnedStamps @"EARNEDSTAMPS"
+#define sixOff @"6OFF"
+#define twelveOff @"12OFF"
 
 
 @interface SMNewStampLayoutViewController ()
 
 @property (nonatomic, assign) NSInteger radius;
+@property (nonatomic, assign) BOOL sixOffBool;
+@property (nonatomic, assign) BOOL twelveOffBool;
 
 @end
 
@@ -39,6 +43,14 @@
     NSNumber *data = [prefs objectForKey:key];
     return data;
 }
+
+- (void)removeDataWithKey:(NSString *)key
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs removeObjectForKey:key];
+    [prefs synchronize];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,10 +73,14 @@
         if(button.tag == 1){
             
             [button setTitle:@"$12 Off" forState:UIControlStateNormal];
-        }
-        if(button.tag == 7){
+            button.userInteractionEnabled = true;
+        }else if(button.tag == 7){
             
             [button setTitle:@"$6 Off" forState:UIControlStateNormal];
+            button.userInteractionEnabled = true;
+        }
+        else{
+            button.userInteractionEnabled = false;
         }
     }
     
@@ -80,8 +96,20 @@
     [super viewWillAppear:animated];
     
     NSArray *savedPaidMeals = [self getDataForKey:earnedStamps];
-
+    
     NSInteger savedMealsValue = savedPaidMeals.count;
+    
+    if(savedMealsValue > 0){
+        
+        [self removeDataWithKey:twelveOff];
+    }
+    
+    NSNumber *sixOffNum = [self getDataForKey:sixOff];
+    self.sixOffBool = sixOffNum.boolValue;
+    
+    NSNumber *twelveOffNum = [self getDataForKey:twelveOff];
+    self.twelveOffBool = twelveOffNum.boolValue;
+    
     
 //    if(savedPaidMeals){
 //        for(NSDictionary *dict in savedPaidMeals){
@@ -100,7 +128,30 @@
         
         UIButton *button = [self.view viewWithTag:i];
         
-        if(button.tag == 1 || button.tag == 7){
+        if(button.tag == 1){
+            if(self.twelveOffBool){
+                [button setTitle:nil forState:UIControlStateNormal];
+                [button setBackgroundImage:[UIImage imageNamed:@"smoreStamp.jpeg"] forState:UIControlStateNormal];
+                button.userInteractionEnabled = false;
+            }else{
+                [button setTitle:@"$12 Off" forState:UIControlStateNormal];
+                [button setBackgroundColor:[UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1]];
+                [button setBackgroundImage:nil forState:UIControlStateNormal];
+                button.userInteractionEnabled = true;
+            }
+            continue;
+        }
+        if(button.tag == 7){
+            if(self.sixOffBool){
+                [button setTitle:nil forState:UIControlStateNormal];
+                [button setBackgroundImage:[UIImage imageNamed:@"smoreStamp.jpeg"] forState:UIControlStateNormal];
+                button.userInteractionEnabled = false;
+            }else{
+                [button setTitle:@"$6 Off" forState:UIControlStateNormal];
+                [button setBackgroundColor:[UIColor colorWithRed: 0.667 green: 0.667 blue: 0.667 alpha: 1]];
+                [button setBackgroundImage:nil forState:UIControlStateNormal];
+                button.userInteractionEnabled = true;
+            }
             continue;
         }
         
@@ -111,15 +162,10 @@
             [button setTitle:[NSString stringWithFormat:@"%ld", button.tag - 2] forState:UIControlStateNormal];
         }
         [button setBackgroundImage:nil forState:UIControlStateNormal];
-//        button.layer.borderWidth = 0;
-//        button.layer.masksToBounds = YES;
         if(savedMealsValue > 0){
             
             [button setBackgroundImage:[UIImage imageNamed:@"smoreStamp.jpeg"] forState:UIControlStateNormal];
             savedMealsValue--;
-//            button.layer.borderWidth = 1;
-//            button.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//            button.layer.masksToBounds = YES;
         }
     }
     
@@ -132,24 +178,40 @@
     if(sender.tag == 1){
         
         if(savedMealsInt >= 10){
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"redeemNotification" object:nil userInfo:@{@"redeem" : @"12"}];
+            
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"redeemNotification" object:nil userInfo:@{@"redeem" : @"12"}];
+            
+            SMScannerViewController *scanVC = (SMScannerViewController *)((UINavigationController *)(self.tabBarController.viewControllers[1])).topViewController;
+            
+            scanVC.redeem12Off = true;
+            
             self.tabBarController.selectedIndex = 1;
+            
         }else{
+            
             NSString *msg = @"You can redeem a free meal after successfully earning 10 loyalty stamps.";
+            
             [self showPopUp:msg];
         }
         
     }else if (sender.tag == 7){
         
         if(savedMealsInt >= 5){
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"redeemNotification" object:nil userInfo:@{@"redeem" : @"6"}];
+            
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"redeemNotification" object:nil userInfo:@{@"redeem" : @"6"}];
+            
+            SMScannerViewController *scanVC = (SMScannerViewController *)((UINavigationController *)(self.tabBarController.viewControllers[1])).topViewController;
+            
+            scanVC.redeem6Off = true;
+            
             self.tabBarController.selectedIndex = 1;
+            
         }else{
+            
             NSString *msg = @"You can redeem a $6 Off after successfully earning atleast 5 loyalty stamps.";
             [self showPopUp:msg];
         }
     }
-    
 }
 
 -(void)showPopUp:(NSString *)msg{

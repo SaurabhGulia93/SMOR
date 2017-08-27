@@ -21,6 +21,8 @@
 #define paidMeals @"PAIDMEALS"
 #define redeemedMeals @"REDEEMEDMEALS"
 #define earnedStamps @"EARNEDSTAMPS"
+#define sixOff @"6OFF"
+#define twelveOff @"12OFF"
 
 @interface SMScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 
@@ -41,7 +43,7 @@
     self.permissionButton.layer.cornerRadius = 2;
     self.permissionButton.layer.masksToBounds = YES;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redeemMeals:) name:@"redeemNotification" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redeemMeals:) name:@"redeemNotification" object:nil];
     
     // Do any additional setup after loading the view.
 }
@@ -79,19 +81,19 @@
     self.redeem6Off = false;
 }
 
--(void)redeemMeals:(NSNotification *)notification{
-    
-    NSDictionary *userInfo = notification.userInfo;
-    NSString *redeemVal = [userInfo objectForKey:@"redeem"];
-    if(redeemVal){
-        
-        if(redeemVal.intValue == 6){
-            self.redeem6Off = true;
-        }else if(redeemVal.intValue == 12){
-            self.redeem12Off = true;
-        }
-    }
-}
+//-(void)redeemMeals:(NSNotification *)notification{
+//    
+//    NSDictionary *userInfo = notification.userInfo;
+//    NSString *redeemVal = [userInfo objectForKey:@"redeem"];
+//    if(redeemVal){
+//        
+//        if(redeemVal.intValue == 6){
+//            self.redeem6Off = true;
+//        }else if(redeemVal.intValue == 12){
+//            self.redeem12Off = true;
+//        }
+//    }
+//}
 
 -(id)getDataForKey:(NSString *)key{
     
@@ -146,6 +148,36 @@
 }
 
 - (void)startScanIfPossible {
+    
+    if(self.savedMeals >= 10 && !self.redeem12Off && !self.redeem6Off){
+        
+        NSString *msg = [NSString stringWithFormat:@"You have got pending free meal. Please redeem it before scanning any further stamps."];
+        
+        UIAlertController * alert =   [UIAlertController
+                                       alertControllerWithTitle:@"Hurrah!!"
+                                       message:msg
+                                       preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        __weak typeof(self) weakSelf = self;
+
+        
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"Ok"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * _Nonnull action) {
+                                 
+                                 weakSelf.tabBarController.selectedIndex = 2;
+                                 
+                                 
+                             }];
+        
+        [alert addAction:ok];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        return;
+    }
     
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
@@ -218,18 +250,18 @@
             
             NSString *qrCodeValue = [metadataObj stringValue];
             
-            if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
-                
-                self.qrCodeValue = qrCodeValue;
-                if(!_shouldStopScan){
-                    [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
-                    _shouldStopScan = true;
-                }
-            }else if ((_redeem6Off || _redeem12Off) && ([qrCodeValue containsString:QR4] || [qrCodeValue containsString:QR5])){
+            if ((_redeem6Off || _redeem12Off) && ([qrCodeValue containsString:QR4] || [qrCodeValue containsString:QR5])){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
                     [self performSelectorOnMainThread:@selector(redeemSuccessFull) withObject:nil waitUntilDone:NO];
+                    _shouldStopScan = true;
+                }
+            } else if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
+                
+                self.qrCodeValue = qrCodeValue;
+                if(!_shouldStopScan){
+                    [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
             }
@@ -242,20 +274,25 @@
     
     if(self.redeem6Off){
         
-        NSArray *savedPaidMeals = [self getDataForKey:earnedStamps];
+//        NSArray *savedPaidMeals = [self getDataForKey:earnedStamps];
+//        
+//        NSMutableArray *mutArr = [NSMutableArray arrayWithArray:savedPaidMeals];
+//        
+//        [mutArr removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]];
+//        
+//        [self saveData:[NSArray arrayWithArray:mutArr] withKey:earnedStamps];
         
-        NSMutableArray *mutArr = [NSMutableArray arrayWithArray:savedPaidMeals];
-        
-        [mutArr removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 5)]];
-        
-        [self saveData:[NSArray arrayWithArray:mutArr] withKey:earnedStamps];
-        
+        [self saveData:[NSNumber numberWithBool:true] withKey:sixOff];
         
     }else if (self.redeem12Off){
         
         [self removeDataWithKey:earnedStamps];
         
         [self removeDataWithKey:paidMeals];
+        
+        [self removeDataWithKey:sixOff];
+        
+        [self saveData:[NSNumber numberWithBool:true] withKey:twelveOff];
 
     }
     
@@ -277,6 +314,8 @@
                              handler:^(UIAlertAction * _Nonnull action) {
                                  
                                  [weakSelf updateUserDefaultsOnRedeem];
+                                 weakSelf.tabBarController.selectedIndex = 2;
+
                                  
                              }];
         
@@ -284,6 +323,9 @@
         
         [self presentViewController:alert animated:YES completion:nil];
     }
+    
+    _redeem6Off = false;
+    _redeem12Off = false;
 
 }
 
@@ -389,32 +431,32 @@
 //    }
     
     
-    if(previousPoints >= 100){
-        
-        NSString *msg = [NSString stringWithFormat:@"You already have 10 stamps. Please redeem a free meal"];
-        
-        UIAlertController * alert =   [UIAlertController
-                                       alertControllerWithTitle:@"Oops!"
-                                       message:msg
-                                       preferredStyle:UIAlertControllerStyleAlert];
-        
-        
-        __weak typeof(self) weakSelf = self;
-        
-        UIAlertAction* ok = [UIAlertAction
-                             actionWithTitle:@"Ok"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * _Nonnull action) {
-                                 
-                                 weakSelf.tabBarController.selectedIndex = 2;
-
-                                 
-                             }];
-        
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
-        return;
-    }
+//    if(previousPoints >= 100){
+//        
+//        NSString *msg = [NSString stringWithFormat:@"You already have 10 stamps. Please redeem a free meal"];
+//        
+//        UIAlertController * alert =   [UIAlertController
+//                                       alertControllerWithTitle:@"Oops!"
+//                                       message:msg
+//                                       preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        
+//        __weak typeof(self) weakSelf = self;
+//        
+//        UIAlertAction* ok = [UIAlertAction
+//                             actionWithTitle:@"Ok"
+//                             style:UIAlertActionStyleDefault
+//                             handler:^(UIAlertAction * _Nonnull action) {
+//                                 
+//                                 weakSelf.tabBarController.selectedIndex = 2;
+//
+//                                 
+//                             }];
+//        
+//        [alert addAction:ok];
+//        [self presentViewController:alert animated:YES completion:nil];
+//        return;
+//    }
 
     
     NSMutableDictionary *mutDict = [[NSMutableDictionary alloc] init];

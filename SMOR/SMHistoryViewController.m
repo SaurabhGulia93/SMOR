@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSDateFormatter *paymentHistoryDateFormatter;
-@property (nonatomic, strong) UISegmentedControl *segmentControl;
 @property (nonatomic, assign) NSInteger selectedSegmentIndex;
 
 @end
@@ -38,7 +37,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    
+    self.selectedSegmentIndex = 0;
+    self.segmentControl.selectedSegmentIndex = self.selectedSegmentIndex;
     NSLocale *posixLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
 
     
@@ -65,7 +65,6 @@
             [mutArr addObject:labelStr];
         }
     }
-    
     self.dataSource = [NSArray arrayWithArray:mutArr];
     
     [self.tableView reloadData];
@@ -86,7 +85,6 @@
             [mutArr addObject:labelStr];
         }
     }
-    
     self.dataSource = [NSArray arrayWithArray:mutArr];
     
     [self.tableView reloadData];

@@ -389,8 +389,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="pr3-AG-5hJ">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="95C-4u-8jG">
-                            <rect key="frame" x="72" y="7" width="231" height="30"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="95C-4u-8jG">
+                            <rect key="frame" x="69" y="7" width="237" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Paid Meals"/>
@@ -402,12 +402,13 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentControl" destination="95C-4u-8jG" id="QGx-na-rOB"/>
                         <outlet property="tableView" destination="rwK-BY-3IK" id="gWn-3Y-Fuh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZd-kl-SYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="1898"/>
+            <point key="canvasLocation" x="1823" y="1872"/>
         </scene>
         <!--Redeem-->
         <scene sceneID="Rc6-BN-k1S">
