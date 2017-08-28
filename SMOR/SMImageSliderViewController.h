@@ -15,5 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *time2;
 @property (weak, nonatomic) IBOutlet UILabel *address;
 @property (weak, nonatomic) IBOutlet UILabel *address2;
+@property (weak, nonatomic) IBOutlet UILabel *opening2;
+@property (weak, nonatomic) IBOutlet UILabel *time3;
+@property (weak, nonatomic) IBOutlet UILabel *time4;
+@property (weak, nonatomic) IBOutlet UILabel *address3;
+@property (weak, nonatomic) IBOutlet UILabel *address4;
 
 @end

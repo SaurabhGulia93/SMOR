@@ -34,6 +34,12 @@
     self.address.textColor = kWhiteColor;
     self.address2.textColor = kWhiteColor;
     
+    self.opening2.textColor = kWhiteColor;
+    self.time3.textColor = kWhiteColor;
+    self.time4.textColor = kWhiteColor;
+    self.address3.textColor = kWhiteColor;
+    self.address4.textColor = kWhiteColor;
+    
     _pageControl = [[UIPageControl alloc] init];
     [self.view addSubview:self.pageControl];
     
