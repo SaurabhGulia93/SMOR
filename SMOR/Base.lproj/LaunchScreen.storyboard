@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchSmor.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Mq4-xS-L48">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash screen2_revised.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mq4-xS-L48">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -40,10 +40,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="-137" y="287"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launchSmor.jpeg" width="701" height="1252"/>
+        <image name="Splash screen2_revised.png" width="750" height="1134"/>
     </resources>
 </document>

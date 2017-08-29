@@ -65,6 +65,7 @@
             [mutArr addObject:labelStr];
         }
     }
+    mutArr = [[[mutArr reverseObjectEnumerator] allObjects] mutableCopy];
     self.dataSource = [NSArray arrayWithArray:mutArr];
     
     [self.tableView reloadData];
@@ -85,6 +86,7 @@
             [mutArr addObject:labelStr];
         }
     }
+    mutArr = [[[mutArr reverseObjectEnumerator] allObjects] mutableCopy];
     self.dataSource = [NSArray arrayWithArray:mutArr];
     
     [self.tableView reloadData];
