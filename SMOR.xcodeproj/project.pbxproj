@@ -20,8 +20,8 @@
 		09660FAB1EE2D32C008B1DD5 /* sm1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FA81EE2D32C008B1DD5 /* sm1.jpg */; };
 		09660FAC1EE2D32C008B1DD5 /* sm2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FA91EE2D32C008B1DD5 /* sm2.jpg */; };
 		09660FAD1EE2D32C008B1DD5 /* sm3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09660FAA1EE2D32C008B1DD5 /* sm3.jpg */; };
-		09BC1DE81F55365600C16F7F /* Splash screen2_revised.png in Resources */ = {isa = PBXBuildFile; fileRef = 09BC1DE71F55365600C16F7F /* Splash screen2_revised.png */; };
 		09BD26C41F3478BB00867FEB /* SMNewStampLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BD26C31F3478BB00867FEB /* SMNewStampLayoutViewController.m */; };
+		09C2169D1F5BFFB600E6CA83 /* Splash screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C2169C1F5BFFB600E6CA83 /* Splash screen.png */; };
 		09D79DA91EE72E660094072A /* SMHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */; };
 		09DBC4AA1F0D0D6F00B522C4 /* smoreStamp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */; };
 		09E542481EF99C82002C9336 /* SBSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E542461EF99C82002C9336 /* SBSliderView.m */; };
@@ -53,9 +53,9 @@
 		09660FA81EE2D32C008B1DD5 /* sm1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm1.jpg; sourceTree = "<group>"; };
 		09660FA91EE2D32C008B1DD5 /* sm2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm2.jpg; sourceTree = "<group>"; };
 		09660FAA1EE2D32C008B1DD5 /* sm3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sm3.jpg; sourceTree = "<group>"; };
-		09BC1DE71F55365600C16F7F /* Splash screen2_revised.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash screen2_revised.png"; sourceTree = "<group>"; };
 		09BD26C21F3478BB00867FEB /* SMNewStampLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMNewStampLayoutViewController.h; sourceTree = "<group>"; };
 		09BD26C31F3478BB00867FEB /* SMNewStampLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMNewStampLayoutViewController.m; sourceTree = "<group>"; };
+		09C2169C1F5BFFB600E6CA83 /* Splash screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash screen.png"; sourceTree = "<group>"; };
 		09D79DA71EE72E660094072A /* SMHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHistoryTableViewCell.h; sourceTree = "<group>"; };
 		09D79DA81EE72E660094072A /* SMHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHistoryTableViewCell.m; sourceTree = "<group>"; };
 		09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smoreStamp.jpeg; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		094990251EE1D7B900FB3089 /* Assessts */ = {
 			isa = PBXGroup;
 			children = (
-				09BC1DE71F55365600C16F7F /* Splash screen2_revised.png */,
+				09C2169C1F5BFFB600E6CA83 /* Splash screen.png */,
 				09DBC4A91F0D0D6F00B522C4 /* smoreStamp.jpeg */,
 				09660FA81EE2D32C008B1DD5 /* sm1.jpg */,
 				09660FA91EE2D32C008B1DD5 /* sm2.jpg */,
@@ -332,10 +332,10 @@
 				09660FAB1EE2D32C008B1DD5 /* sm1.jpg in Resources */,
 				09660FAD1EE2D32C008B1DD5 /* sm3.jpg in Resources */,
 				095798951EDDF96100BB76C6 /* Assets.xcassets in Resources */,
-				09BC1DE81F55365600C16F7F /* Splash screen2_revised.png in Resources */,
 				095798931EDDF96100BB76C6 /* Main.storyboard in Resources */,
 				09660FAC1EE2D32C008B1DD5 /* sm2.jpg in Resources */,
 				09DBC4AA1F0D0D6F00B522C4 /* smoreStamp.jpeg in Resources */,
+				09C2169D1F5BFFB600E6CA83 /* Splash screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
