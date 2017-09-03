@@ -103,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="364" width="375" height="254"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvQ-ps-T7W" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="340.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="380.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-OZ-CY3">
                                                 <rect key="frame" x="24" y="0.0" width="327" height="24"/>
@@ -135,39 +135,41 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYh-3X-wJS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYh-3X-wJS">
                                                 <rect key="frame" x="24" y="168" width="327" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-cL-Drb">
-                                                <rect key="frame" x="8" y="198" width="359" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-cL-Drb">
+                                                <rect key="frame" x="8" y="198" width="359" height="81.5"/>
+                                                <string key="text">Mapletree Business City, #02 - 12a, Singapore 117439
+Mapletree Business City 20 Pasir Panjang road #02-12a</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed on Sat, Sun and Public holidays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAe-QN-KcE">
-                                                <rect key="frame" x="8" y="225" width="359" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-RU-G3t" userLabel="Address3">
-                                                <rect key="frame" x="24" y="273" width="327" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAe-QN-KcE">
+                                                <rect key="frame" x="8" y="287.5" width="359" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapletree Business City, #02 - 12a, Singapore 117439" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXO-S7-5r7" userLabel="One Raffles place, #B1–23, Singapore 048616.">
-                                                <rect key="frame" x="8" y="305" width="359" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-RU-G3t" userLabel="Address3">
+                                                <rect key="frame" x="24" y="317.5" width="327" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed on Sat, Sun and Public holidays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXO-S7-5r7" userLabel="One Raffles place, #B1–23, Singapore 048616.">
+                                                <rect key="frame" x="8" y="345" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="eBh-RU-G3t" firstAttribute="top" secondItem="nAe-QN-KcE" secondAttribute="bottom" constant="27" id="03u-9E-bYE"/>
+                                            <constraint firstItem="eBh-RU-G3t" firstAttribute="top" secondItem="nAe-QN-KcE" secondAttribute="bottom" constant="6" id="03u-9E-bYE"/>
                                             <constraint firstAttribute="trailing" secondItem="uYh-3X-wJS" secondAttribute="trailing" constant="24" id="1u9-aE-kSK"/>
                                             <constraint firstAttribute="trailing" secondItem="nAe-QN-KcE" secondAttribute="trailing" constant="8" id="23R-5p-Jsz"/>
                                             <constraint firstAttribute="trailing" secondItem="AW7-hi-NYH" secondAttribute="trailing" constant="8" id="43x-mn-bGf"/>
@@ -177,7 +179,7 @@
                                             <constraint firstItem="yOy-cL-Drb" firstAttribute="top" secondItem="uYh-3X-wJS" secondAttribute="bottom" constant="6" id="8TU-j4-6Hy"/>
                                             <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="6" id="9ul-Km-RS6"/>
                                             <constraint firstItem="AW7-hi-NYH" firstAttribute="top" secondItem="qZh-Ag-E2h" secondAttribute="bottom" constant="8" id="E3S-Mc-hTU"/>
-                                            <constraint firstItem="QXO-S7-5r7" firstAttribute="top" secondItem="eBh-RU-G3t" secondAttribute="bottom" constant="8" id="J8h-nj-4Vk"/>
+                                            <constraint firstItem="QXO-S7-5r7" firstAttribute="top" secondItem="eBh-RU-G3t" secondAttribute="bottom" constant="7" id="J8h-nj-4Vk"/>
                                             <constraint firstItem="eBh-RU-G3t" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="L6O-Ya-zUc"/>
                                             <constraint firstItem="uYh-3X-wJS" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="LAQ-lx-LG9"/>
                                             <constraint firstItem="QXO-S7-5r7" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="McB-JD-4MO"/>
@@ -192,7 +194,7 @@
                                             <constraint firstAttribute="trailing" secondItem="qZh-Ag-E2h" secondAttribute="trailing" constant="8" id="XrD-LL-ed3"/>
                                             <constraint firstItem="AW7-hi-NYH" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="c1K-uk-qkU"/>
                                             <constraint firstAttribute="trailing" secondItem="aHv-Do-frc" secondAttribute="trailing" constant="24" id="cKZ-hB-0CB"/>
-                                            <constraint firstItem="nAe-QN-KcE" firstAttribute="top" secondItem="yOy-cL-Drb" secondAttribute="bottom" constant="6" id="g2o-GO-T5o"/>
+                                            <constraint firstItem="nAe-QN-KcE" firstAttribute="top" secondItem="yOy-cL-Drb" secondAttribute="bottom" constant="8" id="g2o-GO-T5o"/>
                                             <constraint firstItem="aHv-Do-frc" firstAttribute="top" secondItem="AW7-hi-NYH" secondAttribute="bottom" constant="7" id="jrL-ly-jra"/>
                                             <constraint firstItem="aHv-Do-frc" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="kPC-N0-pYw"/>
                                             <constraint firstItem="yOy-cL-Drb" firstAttribute="top" secondItem="uYh-3X-wJS" secondAttribute="bottom" constant="6" id="lE5-Dw-Lcf"/>
