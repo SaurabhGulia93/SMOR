@@ -30,7 +30,7 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, assign) BOOL shouldStopScan;
 @property (nonatomic, assign) NSInteger savedMeals;
-@property (nonatomic, assign) NSString *qrCodeValue;
+@property (nonatomic, strong) NSString *qrCodeValue;
 
 
 @end
@@ -252,23 +252,23 @@
             
             if ((_redeem6Off) && ([qrCodeValue containsString:QR4])){
                 
-                self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
+                    self.qrCodeValue = qrCodeValue;
                     [self performSelectorOnMainThread:@selector(redeemSuccessFull) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
             } else if ((_redeem12Off) && ([qrCodeValue containsString:QR5])){
                 
-                self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
+                    self.qrCodeValue = qrCodeValue;
                     [self performSelectorOnMainThread:@selector(redeemSuccessFull) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
             }
             else if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
                 
-                self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
+                    self.qrCodeValue = qrCodeValue;
                     [self performSelectorOnMainThread:@selector(showSuccessPopup) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
