@@ -250,14 +250,22 @@
             
             NSString *qrCodeValue = [metadataObj stringValue];
             
-            if ((_redeem6Off || _redeem12Off) && ([qrCodeValue containsString:QR4] || [qrCodeValue containsString:QR5])){
+            if ((_redeem6Off) && ([qrCodeValue containsString:QR4])){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){
                     [self performSelectorOnMainThread:@selector(redeemSuccessFull) withObject:nil waitUntilDone:NO];
                     _shouldStopScan = true;
                 }
-            } else if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
+            } else if ((_redeem12Off) && ([qrCodeValue containsString:QR5])){
+                
+                self.qrCodeValue = qrCodeValue;
+                if(!_shouldStopScan){
+                    [self performSelectorOnMainThread:@selector(redeemSuccessFull) withObject:nil waitUntilDone:NO];
+                    _shouldStopScan = true;
+                }
+            }
+            else if([qrCodeValue containsString:QR1] || [qrCodeValue containsString:QR2]|| [qrCodeValue containsString:QR3]){
                 
                 self.qrCodeValue = qrCodeValue;
                 if(!_shouldStopScan){

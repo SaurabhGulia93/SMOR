@@ -394,16 +394,16 @@ Mapletree Business City 20 Pasir Panjang road #02-12a</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="general" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-w2-sFi">
-                                                    <rect key="frame" x="18" y="18" width="70" height="70.5"/>
+                                                    <rect key="frame" x="18" y="18" width="70" height="69"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIB-BT-L4e">
-                                                    <rect key="frame" x="103" y="43" width="153" height="21"/>
+                                                    <rect key="frame" x="103" y="42.5" width="153" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smored" translatesAutoresizingMaskIntoConstraints="NO" id="ACF-jk-Mju">
-                                                    <rect key="frame" x="268" y="0.0" width="95" height="89"/>
+                                                    <rect key="frame" x="268" y="-1.5" width="95" height="89"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -414,7 +414,7 @@ Mapletree Business City 20 Pasir Panjang road #02-12a</string>
                                                 <constraint firstItem="FXW-w2-sFi" firstAttribute="leading" secondItem="7fz-f8-aTQ" secondAttribute="leadingMargin" constant="10" id="OrO-b4-W9L"/>
                                                 <constraint firstItem="FXW-w2-sFi" firstAttribute="top" secondItem="7fz-f8-aTQ" secondAttribute="topMargin" constant="10" id="bKT-xg-hR6"/>
                                                 <constraint firstItem="ACF-jk-Mju" firstAttribute="leading" secondItem="OIB-BT-L4e" secondAttribute="trailing" constant="12" id="gyI-yc-Kca"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="FXW-w2-sFi" secondAttribute="bottom" constant="10" id="i0q-Hp-w1o"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="FXW-w2-sFi" secondAttribute="bottom" constant="10" id="i0q-Hp-w1o"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
