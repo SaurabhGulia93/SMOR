@@ -103,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="364" width="375" height="254"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvQ-ps-T7W" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="284"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="290.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-OZ-CY3">
                                                 <rect key="frame" x="24" y="0.0" width="327" height="20.5"/>
@@ -136,31 +136,33 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYh-3X-wJS">
-                                                <rect key="frame" x="24" y="150" width="327" height="20.5"/>
+                                                <rect key="frame" x="24" y="140" width="327" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapletree Business City 20 Pasir Panjang road #02-12a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-cL-Drb">
-                                                <rect key="frame" x="8" y="176.5" width="359" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-cL-Drb">
+                                                <rect key="frame" x="8" y="166.5" width="359" height="33.5"/>
+                                                <string key="text">Mapletree Business City, 20 Pasir
+Panjang rd, #02-12a, S - 117439</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAe-QN-KcE">
-                                                <rect key="frame" x="8" y="201.5" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="208" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-RU-G3t" userLabel="Address3">
-                                                <rect key="frame" x="24" y="228" width="327" height="17"/>
+                                                <rect key="frame" x="24" y="234.5" width="327" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed on Sat, Sun and Public holidays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXO-S7-5r7" userLabel="One Raffles place, #B1–23, Singapore 048616.">
-                                                <rect key="frame" x="8" y="252" width="359" height="17"/>
+                                                <rect key="frame" x="8" y="258.5" width="359" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -198,7 +200,7 @@
                                             <constraint firstItem="yOy-cL-Drb" firstAttribute="top" secondItem="uYh-3X-wJS" secondAttribute="bottom" constant="6" id="lE5-Dw-Lcf"/>
                                             <constraint firstItem="yOy-cL-Drb" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="n0e-zm-jxq"/>
                                             <constraint firstAttribute="trailing" secondItem="zKi-OZ-CY3" secondAttribute="trailing" constant="24" id="qG8-QY-yeX"/>
-                                            <constraint firstItem="uYh-3X-wJS" firstAttribute="top" secondItem="i1z-Et-8Uh" secondAttribute="bottom" constant="30" id="tR4-lj-Nxs"/>
+                                            <constraint firstItem="uYh-3X-wJS" firstAttribute="top" secondItem="i1z-Et-8Uh" secondAttribute="bottom" constant="20" id="tR4-lj-Nxs"/>
                                             <constraint firstAttribute="trailing" secondItem="eBh-RU-G3t" secondAttribute="trailing" constant="24" id="tY0-wP-IOk"/>
                                         </constraints>
                                     </view>
