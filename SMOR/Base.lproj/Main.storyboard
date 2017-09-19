@@ -100,10 +100,10 @@
                                 </constraints>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oec-ed-ltV">
-                                <rect key="frame" x="0.0" y="346" width="375" height="272"/>
+                                <rect key="frame" x="0.0" y="342" width="375" height="276"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvQ-ps-T7W" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="269.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="278.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-OZ-CY3">
                                                 <rect key="frame" x="24" y="0.0" width="327" height="20.5"/>
@@ -111,81 +111,81 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Raffles place, #B1–23, Singapore 048616. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-Ag-E2h">
-                                                <rect key="frame" x="8" y="24.5" width="359" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Raffles Place  #B1–23, S - 048616 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZh-Ag-E2h">
+                                                <rect key="frame" x="8" y="22.5" width="359" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW7-hi-NYH">
-                                                <rect key="frame" x="8" y="46.5" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="59" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Do-frc">
-                                                <rect key="frame" x="24" y="71" width="327" height="17"/>
+                                                <rect key="frame" x="24" y="81.5" width="327" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday : 10:30 AM to 6:30 PM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-Et-8Uh">
-                                                <rect key="frame" x="8" y="92" width="359" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat : 10:30 AM to 6:30 PM Closed on Sun and Public Holidays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1z-Et-8Uh">
+                                                <rect key="frame" x="8" y="100.5" width="359" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYh-3X-wJS">
-                                                <rect key="frame" x="24" y="129" width="327" height="20.5"/>
+                                                <rect key="frame" x="24" y="146" width="327" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-cL-Drb">
-                                                <rect key="frame" x="8" y="153.5" width="359" height="33.5"/>
+                                                <rect key="frame" x="8" y="168.5" width="359" height="33.5"/>
                                                 <string key="text">Mapletree Business City, 20 Pasir
-Panjang rd, #02-12a, S - 117439</string>
+Panjang Road, #02-12A, S - 117439</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAe-QN-KcE">
-                                                <rect key="frame" x="8" y="192" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="205" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - Fri : 8 AM to 10 PM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-RU-G3t" userLabel="Address3">
-                                                <rect key="frame" x="24" y="216.5" width="327" height="17"/>
+                                                <rect key="frame" x="24" y="227.5" width="327" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed on Sat, Sun and Public holidays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXO-S7-5r7" userLabel="One Raffles place, #B1–23, Singapore 048616.">
-                                                <rect key="frame" x="8" y="237.5" width="359" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed on Sat, Sun and Public Holidays" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXO-S7-5r7" userLabel="One Raffles place, #B1–23, Singapore 048616.">
+                                                <rect key="frame" x="8" y="246.5" width="359" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="eBh-RU-G3t" firstAttribute="top" secondItem="nAe-QN-KcE" secondAttribute="bottom" constant="4" id="03u-9E-bYE"/>
+                                            <constraint firstItem="eBh-RU-G3t" firstAttribute="top" secondItem="nAe-QN-KcE" secondAttribute="bottom" constant="2" id="03u-9E-bYE"/>
                                             <constraint firstAttribute="trailing" secondItem="uYh-3X-wJS" secondAttribute="trailing" constant="24" id="1u9-aE-kSK"/>
                                             <constraint firstAttribute="trailing" secondItem="nAe-QN-KcE" secondAttribute="trailing" constant="8" id="23R-5p-Jsz"/>
                                             <constraint firstAttribute="trailing" secondItem="AW7-hi-NYH" secondAttribute="trailing" constant="8" id="43x-mn-bGf"/>
                                             <constraint firstItem="i1z-Et-8Uh" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="5VP-S5-yEo"/>
                                             <constraint firstItem="zKi-OZ-CY3" firstAttribute="top" secondItem="ZvQ-ps-T7W" secondAttribute="top" id="6Q8-NJ-VTs"/>
                                             <constraint firstItem="nAe-QN-KcE" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="7J9-JA-OHM"/>
-                                            <constraint firstItem="yOy-cL-Drb" firstAttribute="top" secondItem="uYh-3X-wJS" secondAttribute="bottom" constant="4" id="8TU-j4-6Hy"/>
-                                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="4" id="9ul-Km-RS6"/>
-                                            <constraint firstItem="AW7-hi-NYH" firstAttribute="top" secondItem="qZh-Ag-E2h" secondAttribute="bottom" constant="5" id="E3S-Mc-hTU"/>
-                                            <constraint firstItem="QXO-S7-5r7" firstAttribute="top" secondItem="eBh-RU-G3t" secondAttribute="bottom" constant="4" id="J8h-nj-4Vk"/>
+                                            <constraint firstItem="yOy-cL-Drb" firstAttribute="top" secondItem="uYh-3X-wJS" secondAttribute="bottom" constant="2" id="8TU-j4-6Hy"/>
+                                            <constraint firstItem="qZh-Ag-E2h" firstAttribute="top" secondItem="zKi-OZ-CY3" secondAttribute="bottom" constant="2" id="9ul-Km-RS6"/>
+                                            <constraint firstItem="AW7-hi-NYH" firstAttribute="top" secondItem="qZh-Ag-E2h" secondAttribute="bottom" constant="3" id="E3S-Mc-hTU"/>
+                                            <constraint firstItem="QXO-S7-5r7" firstAttribute="top" secondItem="eBh-RU-G3t" secondAttribute="bottom" constant="2" id="J8h-nj-4Vk"/>
                                             <constraint firstItem="eBh-RU-G3t" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="L6O-Ya-zUc"/>
                                             <constraint firstItem="uYh-3X-wJS" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="LAQ-lx-LG9"/>
                                             <constraint firstItem="QXO-S7-5r7" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="McB-JD-4MO"/>
                                             <constraint firstAttribute="trailing" secondItem="i1z-Et-8Uh" secondAttribute="trailing" constant="8" id="OeI-xH-wMT"/>
                                             <constraint firstItem="zKi-OZ-CY3" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="Q5S-kX-1vj"/>
-                                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="top" secondItem="aHv-Do-frc" secondAttribute="bottom" constant="4" id="RyG-2n-tQs"/>
+                                            <constraint firstItem="i1z-Et-8Uh" firstAttribute="top" secondItem="aHv-Do-frc" secondAttribute="bottom" constant="2" id="RyG-2n-tQs"/>
                                             <constraint firstAttribute="bottom" secondItem="QXO-S7-5r7" secondAttribute="bottom" constant="15" id="TCg-LU-BAJ"/>
                                             <constraint firstItem="qZh-Ag-E2h" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="UlK-6U-piE"/>
                                             <constraint firstAttribute="trailing" secondItem="QXO-S7-5r7" secondAttribute="trailing" constant="8" id="Vkz-Zu-wP9"/>
@@ -193,12 +193,12 @@ Panjang rd, #02-12a, S - 117439</string>
                                             <constraint firstAttribute="trailing" secondItem="qZh-Ag-E2h" secondAttribute="trailing" constant="8" id="XrD-LL-ed3"/>
                                             <constraint firstItem="AW7-hi-NYH" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="c1K-uk-qkU"/>
                                             <constraint firstAttribute="trailing" secondItem="aHv-Do-frc" secondAttribute="trailing" constant="24" id="cKZ-hB-0CB"/>
-                                            <constraint firstItem="nAe-QN-KcE" firstAttribute="top" secondItem="yOy-cL-Drb" secondAttribute="bottom" constant="5" id="g2o-GO-T5o"/>
-                                            <constraint firstItem="aHv-Do-frc" firstAttribute="top" secondItem="AW7-hi-NYH" secondAttribute="bottom" constant="4" id="jrL-ly-jra"/>
+                                            <constraint firstItem="nAe-QN-KcE" firstAttribute="top" secondItem="yOy-cL-Drb" secondAttribute="bottom" constant="3" id="g2o-GO-T5o"/>
+                                            <constraint firstItem="aHv-Do-frc" firstAttribute="top" secondItem="AW7-hi-NYH" secondAttribute="bottom" constant="2" id="jrL-ly-jra"/>
                                             <constraint firstItem="aHv-Do-frc" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="24" id="kPC-N0-pYw"/>
                                             <constraint firstItem="yOy-cL-Drb" firstAttribute="leading" secondItem="ZvQ-ps-T7W" secondAttribute="leading" constant="8" id="n0e-zm-jxq"/>
                                             <constraint firstAttribute="trailing" secondItem="zKi-OZ-CY3" secondAttribute="trailing" constant="24" id="qG8-QY-yeX"/>
-                                            <constraint firstItem="uYh-3X-wJS" firstAttribute="top" secondItem="i1z-Et-8Uh" secondAttribute="bottom" constant="20" id="tR4-lj-Nxs"/>
+                                            <constraint firstItem="uYh-3X-wJS" firstAttribute="top" secondItem="i1z-Et-8Uh" secondAttribute="bottom" constant="12" id="tR4-lj-Nxs"/>
                                             <constraint firstAttribute="trailing" secondItem="eBh-RU-G3t" secondAttribute="trailing" constant="24" id="tY0-wP-IOk"/>
                                         </constraints>
                                     </view>
@@ -220,7 +220,7 @@ Panjang rd, #02-12a, S - 117439</string>
                             <constraint firstItem="VQm-X8-sIu" firstAttribute="top" secondItem="LMv-JJ-q7r" secondAttribute="bottom" id="gYT-eP-WMC"/>
                             <constraint firstAttribute="trailing" secondItem="oec-ed-ltV" secondAttribute="trailing" id="kwI-S2-8Ip"/>
                             <constraint firstItem="VQm-X8-sIu" firstAttribute="leading" secondItem="zvB-1Y-NtX" secondAttribute="leading" id="niF-hx-B1V"/>
-                            <constraint firstItem="oec-ed-ltV" firstAttribute="top" secondItem="VQm-X8-sIu" secondAttribute="bottom" constant="-18" id="sBF-mJ-N2T"/>
+                            <constraint firstItem="oec-ed-ltV" firstAttribute="top" secondItem="VQm-X8-sIu" secondAttribute="bottom" constant="-22" id="sBF-mJ-N2T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SMOR" id="JJI-A3-hj1"/>

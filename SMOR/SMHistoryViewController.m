@@ -177,7 +177,7 @@
     
     //    NSDictionary *headerTitleDict3 = @{NSFontAttributeName : REGULAR(17),
     //                                       NSForegroundColorAttributeName : kDarkerGrayFontColor,
-    //                                       NSParagraphStyleAttributeName : mainStyle
+    //                                          NSParagraphStyleAttributeName : mainStyle
     //                                       };
     
     NSDictionary *headerTitleDict2 = @{NSFontAttributeName : REGULAR(17),
