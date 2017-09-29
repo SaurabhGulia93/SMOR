@@ -331,9 +331,6 @@
         
         [self presentViewController:alert animated:YES completion:nil];
     }
-    
-    _redeem6Off = false;
-    _redeem12Off = false;
 
 }
 
@@ -408,7 +405,13 @@
     
     if(self.qrCodeValue){
         
-        [mutDict setObject:[NSString stringWithFormat:@"%@", self.qrCodeValue] forKey:@"qrValue"];
+        NSString *offValue = nil;
+        if (_redeem6Off){
+            offValue = @"$6 Off";
+        } else {
+            offValue = @"$12 Off";
+        }
+        [mutDict setObject:[NSString stringWithFormat:@"%@", offValue] forKey:@"qrValue"];
         
     }
     
@@ -424,6 +427,8 @@
     
     [self saveData:[NSArray arrayWithArray:mutArr] withKey:redeemedMeals];
 
+    _redeem6Off = false;
+    _redeem12Off = false;
 }
 
 -(void)updateUserDefaults:(NSInteger)previousPoints{
