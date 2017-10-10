@@ -47,6 +47,12 @@
       "idiom" : "iphone",
       "filename" : "SMOR_App_Icon copy 180.png",
       "scale" : "3x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "SMOR_App-1.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
