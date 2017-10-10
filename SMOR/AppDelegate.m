@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MLStyle.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +22,9 @@
     // Override point for customization after application launch.
     
 //    [[UINavigationBar appearance] setBarTintColor:RGB(0, 0, 233)];
+    [Fabric with:@[[Crashlytics class]]];
+//        [[Crashlytics sharedInstance] crash];
+
     [[UINavigationBar appearance] setBarTintColor:RGB(0, 52, 102)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
